@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "struts-2.0.dtd">
+<struts>
+	<package name="rpt" namespace="/" extends="json-default">
+		<!-- 定义一个拦截器 -->
+		<interceptors>
+			<interceptor name="sessionout"
+				class="com.topcheer.base.iterceptor.SessionIterceptor"></interceptor>
+			<interceptor name="oss_exception"
+				class="com.topcheer.base.iterceptor.ExceptionInterceptor"></interceptor>
+			<interceptor name="oss_page"
+				class="com.topcheer.base.iterceptor.PageIterceptor"></interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="oss_page" />
+				<interceptor-ref name="sessionout" />
+				<interceptor-ref name="oss_exception" />
+			</interceptor-stack>
+		</interceptors>
+		<action name="bosTCorpdepoTol_*" class="com.topcheer.rpt.web.TCorpdepoTolAction"
+			method="{1}">
+			<result name="success">/bos/bosTCorpdepoTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+	</package>
+</struts>

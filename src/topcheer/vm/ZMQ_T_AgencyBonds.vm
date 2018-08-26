@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>$!head.ver</VER>
+		<SRC>$!head.src</SRC>
+		<DES>$!head.des</DES>
+		<APP>$!head.app</APP>
+		<MsgNo>$!head.msgNo</MsgNo>
+		<MsgID>$!head.msgID</MsgID>
+		<MsgRef>$!head.msgRef</MsgRef>
+		<WorkDate>$!head.workDate</WorkDate>
+		<EditFlag>$!head.editFlag</EditFlag>
+		<Reserve/> 
+	</HEAD>
+	<MSG>
+	#foreach($batch in ${batchList})
+		<FTZ210301>
+					<ReportCode>$!batch.reportId</ReportCode>
+					<SeqNo>$!batch.declareSeq</SeqNo>
+					<BondsCode>$!batch.bondId</BondsCode>
+					<BondsName>$!batch.bondNm</BondsName>
+					<EntAccount>$!batch.issuCorpAcct</EntAccount>
+					<Currency>$!batch.currencyCd</Currency>
+					<SubmitDate>$!batch.declareDt</SubmitDate>
+					<InstitutionCode>$!batch.txnOrgId</InstitutionCode>
+					<SettleDate>$!batch.sltDt</SettleDate>
+					<TermLength>$!batch.periodLen</TermLength>
+					<TermUnit>$!batch.periodUnit</TermUnit>
+					<ExpireDate>$!batch.matureDt</ExpireDate>
+					<IssueAmount>$!batch.nobondsissued</IssueAmount>
+					<CountryCode>$!batch.countryCd</CountryCode>
+					<DistrictCode>$!batch.domechargeAreaCd</DistrictCode>
+					<TranType>$!batch.txnAttri</TranType>
+					<InterestType>$!batch.rateType</InterestType>
+					<InterestRates>$!batch.fixRate</InterestRates>
+					<Benchmark>$!batch.priceDatum</Benchmark>
+					<FloatRate>$!batch.floatSpread</FloatRate>
+		</FTZ210301>
+		#end
+	</MSG>
+</CFX>

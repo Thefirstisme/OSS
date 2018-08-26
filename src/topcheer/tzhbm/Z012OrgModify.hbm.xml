@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.topcheer.oss.user.bo.Z012OrgModify" table="z012_org_modify" catalog="oss">
+        <id name="orgId" type="java.lang.String">
+            <column name="Org_Id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="parentOrgId" type="java.lang.String">
+            <column name="Parent_Org_Id" length="32" />
+        </property>
+        <property name="orgName" type="java.lang.String">
+            <column name="Org_Name" length="30" />
+        </property>
+        <property name="orgNo" type="java.lang.String">
+            <column name="Org_No" length="10" />
+        </property>
+        <property name="customNo" type="java.lang.String">
+            <column name="Custom_No" length="10" />
+        </property>
+        <property name="orgTypeId" type="java.lang.String">
+            <column name="Org_Type_Id" length="32" />
+        </property>
+        <property name="orgSort" type="java.lang.Integer">
+            <column name="Org_Sort" />
+        </property>
+        <property name="depth" type="java.lang.Integer">
+            <column name="Depth" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="Status" length="2" />
+        </property>
+        <property name="createTime" type="java.sql.Timestamp">
+            <column name="Create_Time" length="0" />
+        </property>
+        <property name="modifyTime" type="java.sql.Timestamp">
+            <column name="Modify_Time" length="0" />
+        </property>
+        <property name="effectDt" type="java.util.Date">
+            <column name="Effect_Dt" length="0" />
+        </property>
+        <property name="operatorId" type="java.lang.String">
+            <column name="Operator_Id" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- spring 事物管理 -->
+	<bean id="rptTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="rptManagerProxyTemplate" abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="rptTransactionManager" />
+		<!-- force to use cglib -->
+		<property name="proxyTargetClass" value="true" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="query*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="tAgencybondsService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TAgencybondsService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tBankaccepbillPayService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TBankaccepbillPayService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tBankaccepbillResvService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TBankaccepbillResvService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCurrswapsService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCurrswapsService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFteAcctinfoService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFteAcctinfoService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFwdexesltService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFwdexesltService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tLcconfirmExpService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TLcconfirmExpService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tLcconfirmImpService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TLcconfirmImpService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tLcPayService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TLcPayService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tLcResvService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TLcResvService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tLgstandbyPayService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TLgstandbyPayService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tLgstandbyResvService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TLgstandbyResvService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tOffsheetfinDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TOffsheetfinDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tOffsheetfinTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TOffsheetfinTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tResvableprepaymentDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TResvableprepaymentDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tResvableprepaymentTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TResvableprepaymentTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tSecuritieDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TSecuritieDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tSecuritieTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TSecuritieTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tSysfinaflowOperDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TSysfinaflowOperDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tSysfinaflowOperTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TSysfinaflowOperTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tSysfinaflowSourDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TSysfinaflowSourDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tSysfinaflowSourTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TSysfinaflowSourTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tPayableprepaymentDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TPayableprepaymentDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTotaloanDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTotaloanDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTotaloanTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTotaloanTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTotareserveDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTotareserveDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTotareserveTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTotareserveTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTradcurraccoOperDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTradcurraccoOperDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTradcurraccoOperTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTradcurraccoOperTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTradcurraccoSourDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTradcurraccoSourDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tTradcurraccoSourTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TTradcurraccoSourTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tVaultcashDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TVaultcashDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tVaultcashTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TVaultcashTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tAccopayatempDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TAccopayatempDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tAccopayatempTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TAccopayatempTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tAgententrdloanfundDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TAgententrdloanfundDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tAgententrdloanfundTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TAgententrdloanfundTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tAssesoldrepuDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TAssesoldrepuDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tAssesoldrepuTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TAssesoldrepuTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tBorrcentbankDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TBorrcentbankDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tBorrcentbankTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TBorrcentbankTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tBuybackassetacquiredDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TBuybackassetacquiredDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tBuybackassetacquiredTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TBuybackassetacquiredTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCentbankfinsavdepoDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCentbankfinsavdepoDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCentbankfinsavdepoTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCentbankfinsavdepoTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCentbankreserveDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCentbankreserveDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCentbankreserveTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCentbankreserveTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCentbankspecdepoDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCentbankspecdepoDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCentbankspecdepoTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCentbankspecdepoTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tPayableprepaymentTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TPayableprepaymentTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCorpdepoDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCorpdepoDtlService">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tCorpdepoTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCorpdepoTolService">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tEquityotherinvestDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TEquityotherinvestDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tEquityotherinvestTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TEquityotherinvestTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tForextradespotOperDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TForextradespotOperDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tForextradespotOperTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TForextradespotOperTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tForextradespotSourDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TForextradespotSourDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tForextradespotSourTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TForextradespotSourTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFtuEntrdsavDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFtuEntrdsavDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFtuEntrdsavTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFtuEntrdsavTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFtuFinabondDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFtuFinabondDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFtuFinabondTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFtuFinabondTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFtuMedlongborrDtlService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFtuMedlongborrDtlService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tFtuMedlongborrTolService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TFtuMedlongborrTolService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tPublishService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TpublishService">
+                <property name="tCustinfoissueResvService" ref="tCustinfoissueResvService"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="cTCdService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.CTCdService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tCustinfoissueResvService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.rpt.service.TCustinfoissueResvService">
+			</bean>
+		</property>
+	</bean>
+	<bean id="dicService" class="com.topcheer.base.dic.service.DicServiceImpl" init-method="init">
+        <property name="dicDAO"  ref="dicDAO"></property>
+    </bean>
+    
+    <!-- 新增加自动上报错误显示的配置文件 -->
+	<bean id="tErrorCountService" parent="rptManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.topcheer.errorcount.service.TErrorCountService">
+			</bean>
+		</property>
+	</bean>
+</beans>

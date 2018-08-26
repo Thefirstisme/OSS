@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.topcheer.base.tquery.bo.QueryTheme" table="query_theme" catalog="oss">
+        <id name="themeId" type="java.lang.String">
+            <column name="THEME_ID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="databaseName" type="java.lang.String">
+            <column name="DATABASE_NAME" length="20" />
+        </property>
+        <property name="oName" type="java.lang.String">
+            <column name="O_NAME" length="100" />
+        </property>
+        <property name="oAlias" type="java.lang.String">
+            <column name="O_ALIAS" length="100" />
+        </property>
+		<property name="lastModify" type="timestamp">
+			<column name="LAST_MODIFY" length="19" />
+		</property>
+        <property name="validity" type="java.lang.String">
+            <column name="validity" length="1" />
+        </property>
+        <set name="queryColumnses" inverse="true" lazy="false">
+            <key>
+                <column name="THEME_ID" length="36" />
+            </key>
+            <one-to-many class="com.topcheer.base.tquery.bo.QueryColumns" />
+        </set>
+    </class>
+</hibernate-mapping>

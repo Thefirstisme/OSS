@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.topcheer.base.tquery.bo.QueryColumns" table="query_columns" catalog="oss">
+        <id name="colId" type="java.lang.String">
+            <column name="col_Id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="queryTheme" class="com.topcheer.base.tquery.bo.QueryTheme" fetch="select">
+            <column name="THEME_ID" length="36" />
+        </many-to-one>
+        <property name="colName" type="java.lang.String">
+            <column name="COL_NAME" length="100" />
+        </property>
+        <property name="colType" type="java.lang.String">
+            <column name="COL_TYPE" length="100" />
+        </property>
+        <property name="colComment" type="java.lang.String">
+            <column name="COL_COMMENT" length="100" />
+        </property>
+        <property name="editType" type="java.lang.String">
+            <column name="EDIT_TYPE" length="1" />
+        </property>
+        <property name="dicId" type="java.lang.String">
+            <column name="DIC_ID" length="20" />
+        </property>
+        <property name="ifQuery" type="java.lang.String">
+            <column name="IF_QUERY" length="1" />
+        </property>
+        <property name="validity" type="java.lang.String">
+            <column name="VALIDITY" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

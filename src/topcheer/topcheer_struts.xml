@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"classpath:/topcheer/struts/struts-2.1.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<!-- struts配置文件拆分，开始 -->
+	<include file="../classes/topcheer/struts/struts_oss.xml"></include>
+	<include file="../classes/topcheer/struts/struts_jgb.xml"></include>
+	<include file="../classes/topcheer/struts/struts_tbs.xml"></include>
+	<include file="../classes/topcheer/struts/struts_rpt.xml"></include>
+	<!-- <include file="../classes/topcheer/struts/struts_log.xml"></include> -->
+	<!-- struts配置文件拆分，结束 -->
+</struts>

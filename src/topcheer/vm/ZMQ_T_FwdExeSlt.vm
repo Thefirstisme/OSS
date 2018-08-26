@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>$!head.ver</VER>
+		<SRC>$!head.src</SRC>
+		<DES>$!head.des</DES>
+		<APP>$!head.app</APP>
+		<MsgNo>$!head.msgNo</MsgNo>
+		<MsgID>$!head.msgID</MsgID>
+		<MsgRef>$!head.msgRef</MsgRef>
+		<WorkDate>$!head.workDate</WorkDate>
+		<EditFlag>$!head.editFlag</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+		#foreach($batch in ${batchList})
+		<FTZ210310>
+			<ReportCode>$!batch.reportId</ReportCode>
+			<SeqNo>$!batch.declareSeq</SeqNo>
+			<SubmitDate>$!batch.declareDt</SubmitDate>
+			<AccOrgCode>$!batch.belongOrgId</AccOrgCode>
+			<TranGenre>$!batch.txnType</TranGenre>
+			<BuyCurr>$!batch.buyCurrency</BuyCurr>
+			<BuyAmt>$!batch.buyAmt</BuyAmt>
+			<BuyRate>$!batch.buyPrc</BuyRate>
+			<SellCurr>$!batch.sellCurrency</SellCurr>
+			<SellAmt>$!batch.sellAmt</SellAmt>
+			<SellRate>$!batch.sellPrc</SellRate>
+			<TranDate1>$!batch.delivDt1</TranDate1>
+			<TranDate2>$!batch.delivDt2</TranDate2>
+			<OppAccount>$!batch.oppositeAcctno</OppAccount>
+			<OppName>$!batch.oppositeAcctName</OppName>
+			<OppBankCode>$!batch.oppositeBankCd</OppBankCode>
+			<CountryCode>$!batch.countryCd</CountryCode>
+			<DistrictCode>$!batch.domechargeAreaCd</DistrictCode>
+			<TranType>$!batch.txnAttri</TranType>
+		</FTZ210310>
+		#end
+	</MSG>
+</CFX>

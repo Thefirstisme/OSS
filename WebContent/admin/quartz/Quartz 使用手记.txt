@@ -1,0 +1,329 @@
+Quartz 使用手记 --转
+概述
+这篇文章是英文教程的中文翻译，有些认为暂时使用不到的特性有省略，英文文档参见http://www.opensymphony.com/quartz/wikidocs/TutorialLesson1.html。
+
+如何使用
+使用QUARTZ调试程序之前，必须使用SchedlerFactory实例化Scheduler。一旦实例化Scheduler后可以启动或者停止，需要注意的是一旦Scheduler关闭，必须重新实例化后才能够重启。任务只有在Scheduler启动后才会执行。
+
+下面的代码片断实例化并启动Scheduler，然后执行一个任务。
+
+java 代码
+SchedulerFactory schedFact = new org.quartz.impl.StdSchedulerFactory();    
+Scheduler sched = schedFact.getScheduler();    
+sched.start();    
+JobDetail jobDetail = new JobDetail("myJob", null, DumbJob.class);    
+Trigger trigger = TriggerUtils.makeHourlyTrigger(); // fire every hour    
+trigger.setStartTime(TriggerUtils.getEvenHourDate(new Date()));    
+trigger.setName("myTrigger");    
+sched.scheduleJob(jobDetail, trigger);   
+任务/触发器
+要定义一个任务，只需要实现Job接口即可，Job接口如下：
+
+java 代码
+package org.quartz;
+public interface Job {  
+public void execute(JobExecutionContext context)       
+      throws JobExecutionException;       
+}     
+当任务被触发时将调用execute方法，JobExecutionContext 参数提供关于任务的运行时环境，包括一个Scheduler的引用，触发这个任务的触发器的引用，任务的JobDetail实例和一些别的信息。
+
+JobDetail 对象在添加任务到Scheduler时创建，这个对象和*JobDataMap* 都用来保存Job实例的状态信息。
+
+Trigger 用来触发任务。要计划一个任务，需要实例化一个触发器并设置相关的属性，触发器也有一个关联的JobDataMap用来传递参数给指定的任务。Quartz提供几个不同的触发器实例，比较常用的是SimpleTrigger和CronTrigger。
+
+如果需要在一个指定的时间，或者指定的时间后以一个指定的间隔对一个任务重复执行多次，使用SimpleTrigger。如果需要基于日历安排任务，使用CronTrigger，比如每个星期五中午。
+
+很多任务调用器没有分离任务和触发器，Quartz这样做有很多好处。比如一个任务可以和多个触发器关联，可以更改或替换一个触发器，而不必重新定义任务。
+
+任务和触发器都有唯一标识名称，也可以进行分组，在一个组中任务和触发器的名称必须是唯一的，这意味着任务和触发器是使用名称+组名唯一标识的。如果不指定组名，相当于使用缺省的组名： Scheduler.DEFAULT_GROUP 。
+
+任务
+以前的Quartz要求具体的Job实现类通过get/set方法传递数据，现在使用JobDetail类来传递数据。
+
+我们先来看一个实例： 
+
+java 代码
+JobDetail jobDetail = new JobDetail("myJob", // job name                                
+                                    sched.DEFAULT_GROUP, // job group (you can also specify 'null' to use the default group)    
+                                    DumbJob.class);               // the java class to executeTrigger trigger = TriggerUtils.makeDailyTrigger(8, 30);    
+trigger.setStartTime(new Date());    
+trigger.setName("myTrigger");sched.scheduleJob(jobDetail, trigger);   
+如下是DumbJob类的代码：
+
+java 代码
+public class DumbJob implements Job {    
+       public DumbJob() {    
+       }    
+       public void execute(JobExecutionContext context)    
+           throws JobExecutionException    
+       {    
+           System.err.println("DumbJob is executing.");    
+       }    
+   }   
+注意在添加一个任务时，传递了一个JobDetail实例作为参数，构建这个JobDetail实例时需要一个任务类参数。每次调用程序执行任务时，创建一个新的任务类实例并执行其execute方法，但是这种方法有一些限制，首先是所有的任务实现必须提供一个无参数的构造函数，还有就是任务实现不应该包含成员字段，因为在每次执行后这些值都会被消除。
+
+那么应该如何给一个任务提供属性或者配置呢？如何在任务的不同执行过程中保存或跟踪任务的状态呢？这是通过JobDetail的JobDataMap来实现。
+
+JobDataMap
+JobDataMap可以用来保存任何需要传递给任务实例的对象（这些对象要求是可序列化的），JobDataMap是java的Map接口的实现，添加了一些便利方法，下面的代码片断描述了如何使用JobDataMap保存数据：
+
+java 代码
+jobDetail.getJobDataMap().put("jobSays", "Hello World!");    
+jobDetail.getJobDataMap().put("myFloatValue", 3.141f);    
+jobDetail.getJobDataMap().put("myStateData", new ArrayList());   
+下面的示例描述了如何在任务执行过程中从JobDataMap获取数据：
+
+public class DumbJob implements Job {           
+       public DumbJob() {    
+       }           
+   
+       public void execute(JobExecutionContext context)    
+           throws JobExecutionException    
+       {    
+           String instName = context.getJobDetail().getName();    
+           String instGroup = context.getJobDetail().getGroup();               
+          JobDataMap dataMap = context.getJobDetail().getJobDataMap();               
+           String jobSays = dataMap.getString("jobSays");    
+           float myFloatValue = dataMap.getFloat("myFloatValue");    
+           ArrayList state = (ArrayList)dataMap.get("myStateData");    
+           state.add(new Date());               
+           System.err.println("Instance " + instName + " of DumbJob says: " + jobSays);    
+       }    
+   }    
+java 代码
+如果使用可持久化的JobStore（随后会有讨论），需要小心决定将JobDataMap保存在什么地方，因为JobDataMap对象中保存的对象是可序列化的，因此可能会遇到类版本问题。
+
+有状态/无状态
+触发器也可以使用JobDataMap保存数据。当需要使用多个触发器重用保存在Scheduler中的单个任务实例时，并且针对每个触发器希望提供任务不同的数据时，这是比较有用的。
+
+JobDataMap在任务执行过程中，可以在JobExecutionContext中找到，这里的JobDataMap是JobDetail中的JobDataMap和触发器中的JobDataMap合并的结果，如果遇到命名相同的元素，后者会重写前者。
+
+如下是从JobExecutionContext中获取JobDataMap的代码片断：
+
+java 代码
+public class DumbJob implements Job {              
+    public DumbJob() {    
+    }             
+    public void execute(JobExecutionContext context)    
+                throws JobExecutionException    
+     {    
+                String instName = context.getJobDetail().getName();    
+                String instGroup = context.getJobDetail().getGroup();                    
+                JobDataMap dataMap = context.getJobDataMap();    // Note the difference from the previous example                    
+                 String jobSays = dataMap.getString("jobSays");    
+                float myFloatValue = dataMap.getFloat("myFloatValue");    
+                ArrayList state = (ArrayList)dataMap.get("myStateData");    
+                state.add(new Date());                    
+                 System.err.println("Instance " + instName + " of DumbJob says: " + jobSays);    
+          }    
+    }   
+
+有状态任务
+任务可以被定义成有状态或无状态的，无状态任务仅仅通过JobDataMap传递数据，这意味着每次任务执行后对JobDataMap的改变都会丢失，而有状态任务恰恰相反，每次任务执行后JobDataMap都被恢复。有状态任务不能并发执行。
+
+实现*StatefulJob*接口的任务是有状态的
+
+任务属性
+下面是通过JobDetail对象定义的一些任务属性：
+
+Durability - 如果这个值为false，每次任务没有活动的触发器关联时都将从Scheduler中删除。 
+Volatility - 如果任务是暂态的，在每次重启Scheduler时将不会被持久化 
+RequestsRecovery - 如果任务是"requests recovery"，当他在Scheduler关闭的时间正在执行时，当Scheduler再次启动时将再次被执行。 
+JobListeners - 任务可以添加多个JobListener实例，当任务执行时，这些监听器将接收到通知。 
+JobExecutionException
+Job的execute方法只能抛出JobExecutionException,这就意味着通常你需要try-catch方法中的所有代码。详细信息可以参考JAVADOC。
+
+触发器
+Calendars
+Quartz Calendar 对象 (不是 java.util.Calendar对象) 可以和触发器关联，当需要从触发器中排除一些时间时，Calendar是比较有用的。比如你希望创建一个触发器，在每个星期三的上午九点激活一个任务，然后通过加一个Calendar实例排除所有的节假日。Calendar接口如下：
+
+java 代码
+package org.quartz;         
+public interface Calendar     
+{                 
+    public boolean isTimeIncluded(long timeStamp);     
+    public long getNextIncludedTime(long timeStamp);         
+}   
+注意这些方法的参数单位是微秒，这意味着Calendar可以精确到微秒，但是通常我们只关心天，Quartz提供一个org.quartz.impl.HolidayCalendar类用来简化Calendar的使用。
+
+Calendar必须使用Scheduler的addCalendar方法进行注册。如果使用HolidayCalendar，实例化后应该调用addExcludedDate(Date date)添加那些需要排除的日期，同一个Calendar可以用于多个触发器。
+
+java 代码
+HolidayCalendar cal = new HolidayCalendar();    
+cal.addExcludedDate( someDate );        
+sched.addCalendar("myHolidays", cal, false);        
+   
+Trigger trigger = TriggerUtils.makeHourlyTrigger(); // fire every one hour interval    
+trigger.setStartTime(TriggerUtils.getEvenHourDate(new Date()));    // start on the next even hour    
+trigger.setName("myTrigger1");       
+trigger.setCalendarName("myHolidays");    // .. schedule job with trigger        
+   
+Trigger trigger2 = TriggerUtils.makeDailyTrigger(8, 0); // fire every day at 08:00    
+trigger.setStartTime(new Date()); // begin immediately    
+trigger2.setName("myTrigger2");       
+trigger2.setCalendarName("myHolidays");    // .. schedule job with trigger2   
+优先级
+待补充。
+
+Misfire指令
+待补充。
+
+TriggerUtils
+TriggerUtils 类包含一些创建触发器和日期的便利方法。使用这个类可以很容易的创建基于分钟，小时，天，星期，月的触发器。
+
+TriggerListener
+触发器也可以注册监听器，监听器必须实现*TriggerListener* 接口。
+
+SimpleTrigger
+如果需要计划一个任务在指定的时间执行，或者在指定的时间后以指定的间隔连续执行多次，比如希望在2005年1月12号上午11:22:54开始执行一个任务，在这之后每隔20分钟执行一次，共执行一次，这种情况下可以使用SimpleTrigger。
+
+SimpleTrigger包含几个属性：开始时间，结束时间，重复次数和间隔。
+
+重复次数可以是大于等于0,或者是常量值SimpleTrigger.REPEAT_INDEFINITELY，间隔必须大于等于0的长整数，单位是微秒。如果间隔为0表示并发执行重复次数。
+
+如果不熟悉java.util.Calendar类，可能经常需要根据开始时间计算触发时间，org.quartz.helpers.TriggerUtils 可以帮助完成这些任务。
+
+结束时间属性重写重复次数属性。如果希望创建一个触发器，每隔10秒执行一次，直到一个指定的时间，可以简单的指定结束时间， 重复次数值为REPEAT_INDEFINITELY。
+
+SimpleTrigger有几个构造函数，下面是其中一个：
+
+java 代码
+public SimpleTrigger(String name,    
+                       String group,    
+                       Date startTime,    
+                       Date endTime,    
+                       int repeatCount,    
+                       long repeatInterval)    
+创建一个10秒钟后只执行一次的触发器：
+
+java 代码
+long startTime = System.currentTimeMillis() + 10000L;    
+   
+SimpleTrigger trigger = new SimpleTrigger("myTrigger",    
+                                            null,    
+                                            new Date(startTime),    
+                                            null,    
+                                            0,    
+                                            0L);    
+创建一个每隔60秒重复执行的触发器：
+
+SimpleTrigger trigger = new SimpleTrigger("myTrigger",    
+                                            null,    
+                                            new Date(),    
+                                            null,    
+                                            SimpleTrigger.REPEAT_INDEFINITELY,    
+                                            60L * 1000L);   
+java 代码
+创建一个40秒后开始执行，每隔10秒执行一次的触发器：
+
+java 代码
+long endTime = System.currentTimeMillis() + 40000L;    
+   
+SimpleTrigger trigger = new SimpleTrigger("myTrigger",    
+                                            "myGroup",    
+                                            new Date(),    
+                                            new Date(endTime),    
+                                            SimpleTrigger.REPEAT_INDEFINITELY,    
+                                            10L * 1000L);    
+创建一个触发器，在2002年3月17日开始执行，重复5次，每次间隔为30秒:
+
+java 代码
+ 
+
+java.util.Calendar cal = new java.util.GregorianCalendar(2002, cal.MARCH, 17);    
+  cal.set(cal.HOUR, 10);    
+  cal.set(cal.MINUTE, 30);    
+  cal.set(cal.SECOND, 0);    
+  cal.set(cal.MILLISECOND, 0);  Data startTime = cal.getTime()  SimpleTrigger trigger = new SimpleTrigger("myTrigger",    
+                                            null,    
+                                            startTime,    
+                                            null,    
+                                            5,    
+                                            30L * 1000L);   
+CronTrigger 
+
+如果需要基于日历指定触发器，可以使用CronTrigger。使用CronTrigger可以实现类似的触发器，比如：每个星期五的下午。比如每个星期一，三和五的上午9点到10点之间每隔5分钟。
+
+CronTrigger也有一个开始时间和结束时间属性，用来指定什么时候任务开始和结束。
+
+Cron表达式
+*Cron*表达式用来配置CronTrigger。Cron表达式是一个由七个部分组成的字符串，这七个部分用空隔进行分隔：
+
+Seconds 
+Minutes 
+Hours 
+Day-of-Month 
+Month 
+Day-of-Week 
+Year (可选字段) 
+'*'字符表示指定字段的所有可能值，比如Day-Of-Week字段的*表示每天。
+
+每个字段都有一些有效值。比如秒和分可以取值0-59，小时可以取值0-23。Day-of-Month可以取值0-31，需要注意一个月有多少天。 月可以取值0-11，或者通过使用JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV 和 DEC。 Days-of-Week可以取值1-7(1==Sunday)或者SUN, MON, TUE, WED, THU, FRI 和SAT。
+
+'/' 字符可以用来指定增量，比如如果指定Minute字段为"0/15"表示在第0分钟启动，每隔15分钟的间隔；"3/20"表示每三分钟启动，每隔20分钟的间隔。
+
+'?' 字符可以在day-of-month和day-of-week 字段中使用，用来表示没有指定值。
+
+'L'字符可以在day-of-month和day-of-week 字段中使用，这个字符表示最后一个的意思。比如在day-of-month字段中表示这个月的最后一天，如果在day-of-week字段表示"7"或者"SAT"，但是如果在day-of-week字段L在另一个值后面，意味着这个月的最后XXX天，比如"6L"表示这个月的最后一个星期五。使用这个字符，不能指定列表，范围值。
+
+'W'字符用来指定离指定天最近的星期XXX，比如如果day-of-month字段值为"15W"，表示离这个月15号最近的一个weekday。
+
+'#'字符用来表示这个月的第几个XXX，比如day-of-week字段的"6#3"表示这个月的第三个星期五。
+
+下面是一些示例：
+创建一个每五分钟激活一次的触发器：
+
+java 代码
+"0 0/5 * * * ?"    
+创建一个触发器在当前分钟的第10秒后，每五分钟执行一次，比如上午10:00:10 am，上午10:05:10：
+
+java 代码
+"10 0/5 * * * ?"    
+创建一个触发器，在每个星期三和星期五的10:30, 11:30, 12:30, 和13:30执行。
+
+java 代码
+"0 30 10-13 ? * WED,FRI"    
+创建一个触发器，在每个月的第5天和第20天的上午8点到10点执行，每隔半小时执行一次，注意上午10:00不会执行：
+
+java 代码
+"0 0/30 8-9 5,20 * ?"   
+监听器
+
+基于触发器的监听器接口如下：
+
+public interface TriggerListener {    
+   
+    public String getName();    
+   
+    public void triggerFired(Trigger trigger, JobExecutionContext context);    
+   
+    public boolean vetoJobExecution(Trigger trigger, JobExecutionContext context);    
+   
+    public void triggerMisfired(Trigger trigger);    
+   
+    public void triggerComplete(Trigger trigger, JobExecutionContext context,    
+            int triggerInstructionCode);    
+}    
+java 代码
+基于任务的监听器接口如下：
+
+java 代码
+public interface JobListener {    
+   
+    public String getName();    
+   
+    public void jobToBeExecuted(JobExecutionContext context);    
+   
+    public void jobExecutionVetoed(JobExecutionContext context);    
+   
+    public void jobWasExecuted(JobExecutionContext context,    
+            JobExecutionException jobException);    
+   
+}    
+注册监听器
+要创建一个监听器，只需要实现相应的接口就可以了。监听器需要在Scheduler中注册，监听器可以被注册为全局的或者本地的，注册监听器时必须指定一个名字，或者监听器本身的getName方法返回一个值。
+
+java 代码
+scheduler.addGlobalJobListener(myJobListener);    
+or    
+scheduler.addJobListener(myJobListener);    

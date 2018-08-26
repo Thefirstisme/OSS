@@ -1,0 +1,149 @@
+使用Quartz实现定时功能 
+ 
+Quartz是一个完全由java编写的开源作业调度框架,具体的介绍可到http://www.opensymphony.com/quartz/官方网站查看。
+ 
+Quartz的几个核心的接口和类为：
+ 
+Job接口：自己写的“定时程序”实现此接口的void execute(JobExecutionContext arg0)方法,Job还有一类为有状态的StatefulJob接口，如果我们需要在上一个作业执行完后，根据其执行结果再进行下次作业的执行，则需要实现此接口。
+Trigger抽象类：调度类(Scheduler)在时间到时调用此类，再由trigger类调用指定的定时程序。
+Quertz中提供了两类触发器为：SimpleTrigger,CronTrigger。前者用于实现比较简单的定时功能，例如几点开始，几点结束，隔多长时间执行，共执行多少次等，后者提供了使用表达式来描述定时功能，因此适用于比较复杂的定时描述，例如每个月的最后一个周五，每周的周四等。
+JobDetail类：具体某个定时程序的详细描述，包括Name,Group,JobDataMap等。
+JobExecutionContext类：定时程序执行的run-time的上下文环境，用于得到当前执行的Job的名字，配置的参数等。
+JobDataMap类：用于描述一个作业的参数，参数可以为任何基本类型例如String,float等，也可为某个对象的引用.
+JobListener,TriggerListener接口：用于监听触发器状态和作业扫行状态，在特写状态执行相应操作。
+JobStore类：在哪里执行定进程序，可选的有在内存中，在数据库中。
+ 
+简单的定时程序：
+
+public class TestJob implements Job
+{
+   public TestJob(){}
+   public void execute(JobExecutionContext arg0) throws JobExecutionException
+   {
+      String name = context.getJobDetail().getJobDataMap().getString("name");
+      System.out.println("job executing..."+name);   }
+}
+ 
+public class QuartzTest
+{
+ public static void main(String[] args)
+ {
+    QuartzTest test = new QuartzTest();
+    try
+   {
+      test.startSchedule();
+   }
+  catch (Exception e)
+  {
+     e.printStackTrace();
+  }
+ }
+ public void startSchedule() throws Exception
+ {
+     Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+     JobDetail jobDetail =
+      new JobDetail("testJob", Scheduler.DEFAULT_GROUP, TestJob.class);
+      //结束时间     
+     long end = System.currentTimeMillis() + 9000L;
+    //执行10次，每3秒执行一次，到9秒后结束
+     SimpleTrigger trigger = new SimpleTrigger("test",null,new Date(),new Date(end),10,3000L);
+      scheduler.scheduleJob(jobDetail, trigger);
+     scheduler.start();
+ }
+}
+ 
+执行上面这个类基本实现了一个简单的定时程序。但问题是现在这个类只能应用在application中，在web环境里执行还需要添加一些配置,例如添加servlet,添加配置文件quartz.properties或者quartz-job.xml(在ＸＭＬ文件里以配置方式定义triiger,定时描述等）。
+ 
+web应用中使用
+ 
+在web.xml中添加QuartzInitializerServlet，Quartz为能够在web应用中使用，提供了一个QuartzInitializerServlet和一个QuartzInitializerListener，用于在加载web应用时，对quartz进行初始化。我在使用servlet时加载成功，在使用listener时不成功，不知道怎么回事？
+
+ 
+
+servlet配置： 
+<servlet> 
+   <servlet-name>QuartzInitializer</servlet-name> 
+   <servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class> 
+   <init-param>
+     <param-name>shutdown-on-unload</param-name>
+     <param-value>true</param-value>
+   </init-param>
+   <init-param>
+    <param-name>config-file</param-name>
+    <param-value>quartz.properties</param-value> 
+   </init-param>
+   <load-on-startup>2</load-on-startup>
+ </servlet>
+listener配置可以看源码，主要的上面的参数配置为<context-param>,再加一个<listener>.
+ 
+上面提到了quartz.properties,这是自行指定的，Quartz提供了一个默认的配置文件，可以满足基本的j2se应用，如果在web应用中，我们想把job,trigger配置都写到文件中，就需要自己来写，并指定在初始化时加载我们自己的quratz.properties，位置放在classes下。
+ 
+#============================================================================
+# Configure Main Scheduler Properties  
+#============================================================================
+org.quartz.scheduler.instanceName = org.quartz.scheduler.instanceId = AUTO
+#============================================================================
+# Configure ThreadPool  
+#============================================================================
+org.quartz.threadPool.class = org.quartz.simpl.SimpleThreadPool
+org.quartz.threadPool.threadCount = 3
+org.quartz.threadPool.threadPriority = 5
+#============================================================================
+# Configure Plugins 
+#============================================================================
+org.quartz.plugin.triggHistory.class = org.quartz.plugins.history.LoggingJobHistoryPlugin
+org.quartz.plugin.jobInitializer.class = org.quartz.plugins.xml.JobInitializationPlugin
+org.quartz.plugin.jobInitializer.fileName = /scheduler/quartz_jobs.xml
+org.quartz.plugin.jobInitializer.overWriteExistingJobs = true
+org.quartz.plugin.jobInitializer.failOnFileNotFound = true
+org.quartz.plugin.jobInitializer.scanInterval = 10
+ 
+quartz要使用插件来加载自己的xml配置文件，上边我们指定了在初始化时加载classes\scheduler\quartz_jobs.xml，默认的是加载classes\quartz_jobs.xml文件。
+ 
+quartz_jobs.xml文件：
+<?xml version='1.0' encoding='utf-8'?>
+<quartz>
+ <job>
+　　 <job-detail>
+  　　<name>test</name>
+  　　<group>DEFAULT</group>
+  　　<description>testJobhere</description>
+  　　<job-class>TestJob</job-class>
+  　　<job-data-map allows-transient-data="true">
+   　　<entry>
+    　　<key>name</key>
+   　　 <value>test</value>
+   　　</entry>
+   </job-data-map>
+ 　　</job-detail>
+　　 <trigger>
+             <cron>
+                  <name>testCron</name>
+                  <group>DEFAULT</group>
+                  <job-name>test</job-name>
+                 <job-group>DEFALUT</job-group>
+                 <cron-expression>0/3 * * * * ?</cron-expression>
+             </cron>
+       </trigger>
+　 </job>
+</quartz>
+
+ 
+上面配置了一个作业，并声明一个参数Name；配置了一个CronTrigger,每三秒执行一次。如果要配置SimpleTrigger ,可以使用<simple>标签。
+ 
+上面与Job对应的类为TestJob，源码为：
+public class TestJob implements Job
+{
+ public TestJob(){}
+ public void execute(JobExecutionContext context) throws JobExecutionException
+ {
+     String name = context.getJobDetail().getJobDataMap().getString("name");
+     System.out.println("job executing..."+name);
+ }
+}
+ 
+在quartz_job.xml文件中还可以指定TriggerListener,JobListener等，可以使用<trigger-listener>,<job-listener>标签来指定。
+ 
+由于quartz目前文档不是很多，大部分都是看源码。总体看Quartz提供的CronTrigger使用表达式方式描述定时规律这个功能还是很强大的，在其源码中有很多例子。
+ 
+spring已经把quartz集成在一起，并进行了封装，使用起来还是很方便的。

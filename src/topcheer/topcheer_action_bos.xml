@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="rptTAgencybonds" class="com.topcheer.rpt.web.TAgencybondsAction">
+		<property name="tAgencybondsService" ref="tAgencybondsService"></property>
+	</bean>
+	<bean id="rptTBankaccepbillPay" class="com.topcheer.rpt.web.TBankaccepbillPayAction">
+		<property name="tBankaccepbillPayService" ref="tBankaccepbillPayService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTBankaccepbillResv" class="com.topcheer.rpt.web.TBankaccepbillResvAction">
+		<property name="tBankaccepbillResvService" ref="tBankaccepbillResvService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTCurrswaps" class="com.topcheer.rpt.web.TCurrswapsAction">
+		<property name="tCurrswapsService" ref="tCurrswapsService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTFteAcctinfo" class="com.topcheer.rpt.web.TFteAcctinfoAction">
+		<property name="tFteAcctinfoService" ref="tFteAcctinfoService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTFwdexeslt" class="com.topcheer.rpt.web.TFwdexesltAction">
+		<property name="tFwdexesltService" ref="tFwdexesltService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTLcconfirmExp" class="com.topcheer.rpt.web.TLcconfirmExpAction">
+		<property name="tLcconfirmExpService" ref="tLcconfirmExpService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTLcconfirmImp" class="com.topcheer.rpt.web.TLcconfirmImpAction">
+		<property name="tLcconfirmImpService" ref="tLcconfirmImpService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTLcPay" class="com.topcheer.rpt.web.TLcPayAction">
+		<property name="tLcPayService" ref="tLcPayService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTLcResv" class="com.topcheer.rpt.web.TLcResvAction">
+		<property name="tLcResvService" ref="tLcResvService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTLgstandbyPay" class="com.topcheer.rpt.web.TLgstandbyPayAction">
+		<property name="tLgstandbyPayService" ref="tLgstandbyPayService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTLgstandbyResv" class="com.topcheer.rpt.web.TLgstandbyResvAction">
+		<property name="tLgstandbyResvService" ref="tLgstandbyResvService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+
+	<bean id="rpttOffsheetfinDtl" class="com.topcheer.rpt.web.TOffsheetfinDtlAction">
+		<property name="tOffsheetfinDtlService" ref="tOffsheetfinDtlService"></property>
+		<property name="tOffsheetfinTolService" ref="tOffsheetfinTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttOffsheetfinTol" class="com.topcheer.rpt.web.TOffsheetfinTolAction">
+		<property name="tOffsheetfinTolService" ref="tOffsheetfinTolService"></property>
+		<property name="tOffsheetfinDtlService" ref="tOffsheetfinDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttResvableprepaymentDtl" class="com.topcheer.rpt.web.TResvableprepaymentDtlAction">
+		<property name="tResvableprepaymentDtlService" ref="tResvableprepaymentDtlService"></property>
+		<property name="tResvableprepaymentTolService" ref="tResvableprepaymentTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttResvableprepaymentTol" class="com.topcheer.rpt.web.TResvableprepaymentTolAction">
+		<property name="tResvableprepaymentTolService" ref="tResvableprepaymentTolService"></property>
+		<property name="tResvableprepaymentDtlService" ref="tResvableprepaymentDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttSecuritieDtl" class="com.topcheer.rpt.web.TSecuritieDtlAction">
+		<property name="tSecuritieDtlService" ref="tSecuritieDtlService"></property>
+		<property name="tSecuritieTolService" ref="tSecuritieTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttSecuritieTol" class="com.topcheer.rpt.web.TSecuritieTolAction">
+		<property name="tSecuritieTolService" ref="tSecuritieTolService"></property>
+		<property name="tSecuritieDtlService" ref="tSecuritieDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttSysfinaflowOperDtl" class="com.topcheer.rpt.web.TSysfinaflowOperDtlAction">
+		<property name="tSysfinaflowOperDtlService" ref="tSysfinaflowOperDtlService"></property>
+		<property name="tSysfinaflowOperTolService" ref="tSysfinaflowOperTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttSysfinaflowOperTol" class="com.topcheer.rpt.web.TSysfinaflowOperTolAction">
+		<property name="tSysfinaflowOperTolService" ref="tSysfinaflowOperTolService"></property>
+		<property name="tSysfinaflowOperDtlService" ref="tSysfinaflowOperDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttSysfinaflowSourDtl" class="com.topcheer.rpt.web.TSysfinaflowSourDtlAction">
+		<property name="tSysfinaflowSourDtlService" ref="tSysfinaflowSourDtlService"></property>
+		<property name="tSysfinaflowSourTolService" ref="tSysfinaflowSourTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttSysfinaflowSourTol" class="com.topcheer.rpt.web.TSysfinaflowSourTolAction">
+		<property name="tSysfinaflowSourTolService" ref="tSysfinaflowSourTolService"></property>
+		<property name="tSysfinaflowSourDtlService" ref="tSysfinaflowSourDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttPayableprepaymentDtl" class="com.topcheer.rpt.web.TPayableprepaymentDtlAction">
+		<property name="tPayableprepaymentDtlService" ref="tPayableprepaymentDtlService"></property>
+		<property name="tPayableprepaymentTolService" ref="tPayableprepaymentTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTotaloanDtl" class="com.topcheer.rpt.web.TTotaloanDtlAction">
+		<property name="tTotaloanDtlService" ref="tTotaloanDtlService"></property>
+		<property name="tTotaloanTolService" ref="tTotaloanTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTotaloanTol" class="com.topcheer.rpt.web.TTotaloanTolAction">
+		<property name="tTotaloanTolService" ref="tTotaloanTolService"></property>
+		<property name="tTotaloanDtlService" ref="tTotaloanDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTotareserveDtl" class="com.topcheer.rpt.web.TTotareserveDtlAction">
+		<property name="tTotareserveDtlService" ref="tTotareserveDtlService"></property>
+		<property name="tTotareserveTolService" ref="tTotareserveTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTotareserveTol" class="com.topcheer.rpt.web.TTotareserveTolAction">
+		<property name="tTotareserveTolService" ref="tTotareserveTolService"></property>
+		<property name="tTotareserveDtlService" ref="tTotareserveDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTradcurraccoOperDtl" class="com.topcheer.rpt.web.TTradcurraccoOperDtlAction">
+		<property name="tTradcurraccoOperDtlService" ref="tTradcurraccoOperDtlService"></property>
+		<property name="tTradcurraccoOperTolService" ref="tTradcurraccoOperTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTradcurraccoOperTol" class="com.topcheer.rpt.web.TTradcurraccoOperTolAction">
+		<property name="tTradcurraccoOperTolService" ref="tTradcurraccoOperTolService"></property>
+		<property name="tTradcurraccoOperDtlService" ref="tTradcurraccoOperDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTradcurraccoSourDtl" class="com.topcheer.rpt.web.TTradcurraccoSourDtlAction">
+		<property name="tTradcurraccoSourDtlService" ref="tTradcurraccoSourDtlService"></property>
+		<property name="tTradcurraccoSourTolService" ref="tTradcurraccoSourTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttTradcurraccoSourTol" class="com.topcheer.rpt.web.TTradcurraccoSourTolAction">
+		<property name="tTradcurraccoSourTolService" ref="tTradcurraccoSourTolService"></property>
+		<property name="tTradcurraccoSourDtlService" ref="tTradcurraccoSourDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttVaultcashDtl" class="com.topcheer.rpt.web.TVaultcashDtlAction">
+		<property name="tVaultcashDtlService" ref="tVaultcashDtlService"></property>
+		<property name="tVaultcashTolService" ref="tVaultcashTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttVaultcashTol" class="com.topcheer.rpt.web.TVaultcashTolAction">
+		<property name="tVaultcashDtlService" ref="tVaultcashDtlService"></property>
+		<property name="tVaultcashTolService" ref="tVaultcashTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttAccopayatempDtl" class="com.topcheer.rpt.web.TAccopayatempDtlAction">
+		<property name="tAccopayatempDtlService" ref="tAccopayatempDtlService"></property>
+		<property name="tAccopayatempTolService" ref="tAccopayatempTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttAccopayatempTol" class="com.topcheer.rpt.web.TAccopayatempTolAction">
+		<property name="tAccopayatempTolService" ref="tAccopayatempTolService"></property>
+		<property name="tAccopayatempDtlService" ref="tAccopayatempDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttAgententrdloanfundDtl" class="com.topcheer.rpt.web.TAgententrdloanfundDtlAction">
+		<property name="tAgententrdloanfundDtlService" ref="tAgententrdloanfundDtlService"></property>
+		<property name="tAgententrdloanfundTolService" ref="tAgententrdloanfundTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttAgententrdloanfundTol" class="com.topcheer.rpt.web.TAgententrdloanfundTolAction">
+		<property name="tAgententrdloanfundTolService" ref="tAgententrdloanfundTolService"></property>
+		<property name="tAgententrdloanfundDtlService" ref="tAgententrdloanfundDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttAssesoldrepuDtl" class="com.topcheer.rpt.web.TAssesoldrepuDtlAction">
+		<property name="tAssesoldrepuDtlService" ref="tAssesoldrepuDtlService"></property>
+		<property name="tAssesoldrepuTolService" ref="tAssesoldrepuTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttAssesoldrepuTol" class="com.topcheer.rpt.web.TAssesoldrepuTolAction">
+		<property name="tAssesoldrepuTolService" ref="tAssesoldrepuTolService"></property>
+		<property name="tAssesoldrepuDtlService" ref="tAssesoldrepuDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttBorrcentbankDtl" class="com.topcheer.rpt.web.TBorrcentbankDtlAction">
+		<property name="tBorrcentbankDtlService" ref="tBorrcentbankDtlService"></property>
+		<property name="tBorrcentbankTolService" ref="tBorrcentbankTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttBorrcentbankTol" class="com.topcheer.rpt.web.TBorrcentbankTolAction">
+		<property name="tBorrcentbankTolService" ref="tBorrcentbankTolService"></property>
+		<property name="tBorrcentbankDtlService" ref="tBorrcentbankDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttBuybackassetacquiredDtl" class="com.topcheer.rpt.web.TBuybackassetacquiredDtlAction">
+		<property name="tBuybackassetacquiredDtlService" ref="tBuybackassetacquiredDtlService"></property>
+		<property name="tBuybackassetacquiredTolService" ref="tBuybackassetacquiredTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttBuybackassetacquiredTol" class="com.topcheer.rpt.web.TBuybackassetacquiredTolAction">
+		<property name="tBuybackassetacquiredTolService" ref="tBuybackassetacquiredTolService"></property>
+		<property name="tBuybackassetacquiredDtlService" ref="tBuybackassetacquiredDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCentbankfinsavdepoDtl" class="com.topcheer.rpt.web.TCentbankfinsavdepoDtlAction">
+		<property name="tCentbankfinsavdepoDtlService" ref="tCentbankfinsavdepoDtlService"></property>
+		<property name="tCentbankfinsavdepoTolService" ref="tCentbankfinsavdepoTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCentbankfinsavdepoTol" class="com.topcheer.rpt.web.TCentbankfinsavdepoTolAction">
+		<property name="tCentbankfinsavdepoTolService" ref="tCentbankfinsavdepoTolService"></property>
+		<property name="tCentbankfinsavdepoDtlService" ref="tCentbankfinsavdepoDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCentbankreserveDtl" class="com.topcheer.rpt.web.TCentbankreserveDtlAction">
+		<property name="tCentbankreserveDtlService" ref="tCentbankreserveDtlService"></property>
+		<property name="tCentbankreserveTolService" ref="tCentbankreserveTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCentbankreserveTol" class="com.topcheer.rpt.web.TCentbankreserveTolAction">
+		<property name="tCentbankreserveTolService" ref="tCentbankreserveTolService"></property>
+		<property name="tCentbankreserveDtlService" ref="tCentbankreserveDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCentbankspecdepoDtl" class="com.topcheer.rpt.web.TCentbankspecdepoDtlAction">
+		<property name="tCentbankspecdepoDtlService" ref="tCentbankspecdepoDtlService"></property>
+		<property name="tCentbankspecdepoTolService" ref="tCentbankspecdepoTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCentbankspecdepoTol" class="com.topcheer.rpt.web.TCentbankspecdepoTolAction">
+		<property name="tCentbankspecdepoTolService" ref="tCentbankspecdepoTolService"></property>
+		<property name="tCentbankspecdepoDtlService" ref="tCentbankspecdepoDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttPayableprepaymentTol" class="com.topcheer.rpt.web.TPayableprepaymentTolAction">
+		<property name="tPayableprepaymentTolService" ref="tPayableprepaymentTolService"></property>
+		<property name="tPayableprepaymentDtlService" ref="tPayableprepaymentDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCorpdepoDtl" class="com.topcheer.rpt.web.TCorpdepoDtlAction">
+		<property name="tCorpdepoDtlService" ref="tCorpdepoDtlService"></property>
+		<property name="tCorpdepoTolService" ref="tCorpdepoTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttCorpdepoTol" class="com.topcheer.rpt.web.TCorpdepoTolAction">
+		<property name="tCorpdepoTolService" ref="tCorpdepoTolService"></property>
+		<property name="tCorpdepoDtlService" ref="tCorpdepoDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttEquityotherinvestDtl" class="com.topcheer.rpt.web.TEquityotherinvestDtlAction">
+		<property name="tEquityotherinvestDtlService" ref="tEquityotherinvestDtlService"></property>
+		<property name="tEquityotherinvestTolService" ref="tEquityotherinvestTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttEquityotherinvestTol" class="com.topcheer.rpt.web.TEquityotherinvestTolAction">
+		<property name="tEquityotherinvestTolService" ref="tEquityotherinvestTolService"></property>
+		<property name="tEquityotherinvestDtlService" ref="tEquityotherinvestDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttForextradespotOperDtl" class="com.topcheer.rpt.web.TForextradespotOperDtlAction">
+		<property name="tForextradespotOperDtlService" ref="tForextradespotOperDtlService"></property>
+		<property name="tForextradespotOperTolService" ref="tForextradespotOperTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttForextradespotOperTol" class="com.topcheer.rpt.web.TForextradespotOperTolAction">
+		<property name="tForextradespotOperTolService" ref="tForextradespotOperTolService"></property>
+		<property name="tForextradespotOperDtlService" ref="tForextradespotOperDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttForextradespotSourDtl" class="com.topcheer.rpt.web.TForextradespotSourDtlAction">
+		<property name="tForextradespotSourDtlService" ref="tForextradespotSourDtlService"></property>
+		<property name="tForextradespotSourTolService" ref="tForextradespotSourTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttForextradespotSourTol" class="com.topcheer.rpt.web.TForextradespotSourTolAction">
+		<property name="tForextradespotSourTolService" ref="tForextradespotSourTolService"></property>
+		<property name="tForextradespotSourDtlService" ref="tForextradespotSourDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttFtuEntrdsavDtl" class="com.topcheer.rpt.web.TFtuEntrdsavDtlAction">
+		<property name="tFtuEntrdsavDtlService" ref="tFtuEntrdsavDtlService"></property>
+		<property name="tFtuEntrdsavTolService" ref="tFtuEntrdsavTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttFtuEntrdsavTol" class="com.topcheer.rpt.web.TFtuEntrdsavTolAction">
+		<property name="tFtuEntrdsavTolService" ref="tFtuEntrdsavTolService"></property>
+		<property name="tFtuEntrdsavDtlService" ref="tFtuEntrdsavDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttFtuFinabondDtl" class="com.topcheer.rpt.web.TFtuFinabondDtlAction">
+		<property name="tFtuFinabondDtlService" ref="tFtuFinabondDtlService"></property>
+		<property name="tFtuFinabondTolService" ref="tFtuFinabondTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttFtuFinabondTol" class="com.topcheer.rpt.web.TFtuFinabondTolAction">
+		<property name="tFtuFinabondTolService" ref="tFtuFinabondTolService"></property>
+		<property name="tFtuFinabondDtlService" ref="tFtuFinabondDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttFtuMedlongborrDtl" class="com.topcheer.rpt.web.TFtuMedlongborrDtlAction">
+		<property name="tFtuMedlongborrDtlService" ref="tFtuMedlongborrDtlService"></property>
+		<property name="tFtuMedlongborrTolService" ref="tFtuMedlongborrTolService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rpttFtuMedlongborrTol" class="com.topcheer.rpt.web.TFtuMedlongborrTolAction">
+		<property name="tFtuMedlongborrTolService" ref="tFtuMedlongborrTolService"></property>
+		<property name="tFtuMedlongborrDtlService" ref="tFtuMedlongborrDtlService"></property>
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptCTCd" class="com.topcheer.rpt.web.CTCdAction">
+		<property name="cTCdService" ref="cTCdService"></property>
+	</bean>
+	<bean id="rptpublish" class="com.topcheer.rpt.web.TpublishAction">
+		<property name="tPublishService" ref="tPublishService"></property>
+	</bean>
+	<bean id="rptTCustinfoissueResv" class="com.topcheer.rpt.web.TCustinfoissueResvAction">
+		<property name="tCustinfoissueResvService" ref="tCustinfoissueResvService"></property>
+	</bean>
+	
+	<!-- 新增加自动上报错误显示的配置文件 -->
+	<bean id="tErrorCountAction" class="com.topcheer.errorcount.web.TErrorCountAction">
+		<property name="tErrorCountService" ref="tErrorCountService"></property>
+	</bean>
+</beans>

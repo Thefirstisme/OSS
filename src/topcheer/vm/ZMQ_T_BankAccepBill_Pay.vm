@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>$!head.ver</VER>
+		<SRC>$!head.src</SRC>
+		<DES>$!head.des</DES>
+		<APP>$!head.app</APP>
+		<MsgNo>$!head.msgNo</MsgNo>
+		<MsgID>$!head.msgID</MsgID>
+		<MsgRef>$!head.msgRef</MsgRef>
+		<WorkDate>$!head.workDate</WorkDate>
+		<EditFlag>$!head.editFlag</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+		#foreach($batch in ${batchList})
+		<FTZ210305>
+			<ReportCode>$!batch.reportId</ReportCode>
+			<SeqNo>$!batch.declareSeq</SeqNo>
+			<SubmitDate>$!batch.declareDt</SubmitDate>
+			<AccOrgCode>$!batch.belongOrgId</AccOrgCode>
+			<AcceptanceDate>$!batch.acptDt</AcceptanceDate>
+			<AcceptanceExpireDate>$!batch.acptMatureDt</AcceptanceExpireDate>
+			<AcceptanceAmount>$!batch.acptAmt</AcceptanceAmount>
+			<Currency>$!batch.currencyCd</Currency>
+			<EntAccount>$!batch.corpAcctId</EntAccount>
+			<EntName>$!batch.corpNm</EntName>
+			<EntCode>$!batch.corpId</EntCode>
+			<CountryCode>$!batch.countryCd</CountryCode>
+			<DistrictCode>$!batch.domechargeAreaCd</DistrictCode>
+		</FTZ210305>
+		#end
+	</MSG>
+</CFX>

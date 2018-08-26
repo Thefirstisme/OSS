@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mapping>
+	<class name="com.topcheer.base.xmlToBean.bo.Capsule">
+		<map-to xml="cbrc" />
+		<field name="list" type="com.topcheer.base.xmlToBean.bo.Report" collection="arraylist">
+			<bind-xml name="report" />
+		</field>
+	</class>
+	<class name="com.topcheer.base.xmlToBean.bo.Report">
+		<map-to xml="report" />
+			<field name="id" type="java.lang.String">
+				<bind-xml name="id" node="attribute" />
+			</field>
+			<field name="tablename" type="java.lang.String">
+				<bind-xml name="tablename" node="attribute" />
+			</field>
+			<field name="ruleList" type="com.topcheer.base.xmlToBean.bo.Rule" collection="collection">
+				<bind-xml name="rule" />
+			</field>
+	</class>
+	<class name="com.topcheer.base.xmlToBean.bo.Rule">
+		<map-to xml="rule" />
+		<field name="colname" type="java.lang.String">
+			<bind-xml name="colname" node="attribute" />
+		</field>
+		<field name="lable" type="java.lang.String">
+			<bind-xml name="lable" node="attribute" />
+		</field>
+		<field name="problemcode" type="java.lang.String">
+			<bind-xml name="problemcode" node="attribute" />
+		</field>
+		<field name="method" type="java.lang.String">
+			<bind-xml name="method" node="attribute" />
+		</field>
+		<field name="param1" type="java.lang.String">
+			<bind-xml name="param1" node="attribute" />
+		</field>
+		<field name="msg" type="java.lang.String">
+			<bind-xml name="msg" node="attribute" />
+		</field>
+		<field name="verifytype" type="java.lang.String">
+			<bind-xml name="verifytype" node="attribute" />
+		</field>
+		<field name="level" type="java.lang.String">
+			<bind-xml name="level" node="attribute" />
+		</field>
+		<field name="open" type="java.lang.String">
+			<bind-xml name="open" node="attribute" />
+		</field>
+	</class>
+</mapping>

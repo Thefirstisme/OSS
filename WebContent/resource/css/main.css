@@ -1,0 +1,60 @@
+/*GridPanel设置************************************************/
+/*显示竖线*/
+.x-grid3-cell-inner{
+    border-right: 1px solid #eceff6;
+    border-bottom: 0px solid #eceff6;
+}
+/*与表头对齐*/
+.x-grid3-row td, .x-grid3-summary-row td
+{
+    padding-right:0px;
+    padding-left:2px;
+}
+
+/*去掉行间空白*/
+.x-grid3-row {
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+/*************************************************************/
+
+
+/*页面正常字体设置*********************************************/
+
+body {
+	font-family : "lucida grande",tahoma,arial,sans-serif;
+	font-size   : 11px;
+}
+
+a { color : #15428B; }
+a:link, a:visited { text-decoration : none; }
+a:hover { text-decoration : underline; }
+
+
+/*************************************************************/
+
+.event {
+    margin  : 8px 12px;
+    border  : solid 1px #999;
+    background-color : #EFEFEF; 
+}
+
+.event table {
+    width : 100%;
+}
+
+.event caption {
+    color   : #fff;
+    padding : 3px;
+    font-weight      : bold;
+    background-color : #999;
+}
+
+.event th, .event td {
+    padding : 2px 5px;
+}
+
+.event th {
+    width       : 100px;
+    font-weight : bold;
+}

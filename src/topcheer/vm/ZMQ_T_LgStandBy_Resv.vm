@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>$!head.ver</VER>
+		<SRC>$!head.src</SRC>
+		<DES>$!head.des</DES>
+		<APP>$!head.app</APP>
+		<MsgNo>$!head.msgNo</MsgNo>
+		<MsgID>$!head.msgID</MsgID>
+		<MsgRef>$!head.msgRef</MsgRef>
+		<WorkDate>$!head.workDate</WorkDate>
+		<EditFlag>$!head.editFlag</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+		#foreach($batch in ${batchList})
+		<FTZ210307>
+			<ReportCode>$!batch.reportId</ReportCode>
+			<SeqNo>$!batch.declareSeq</SeqNo>
+			<SubmitDate>$!batch.declareDt</SubmitDate>
+			<AccOrgCode>$!batch.belongOrgId</AccOrgCode>
+			<Amount>$!batch.bal</Amount>
+			<Currency>$!batch.currencyCd</Currency>
+			<OppSwiftCode>$!batch.abroadOppBankId</OppSwiftCode>
+			<EntName>$!batch.securedPartyNm</EntName>
+			<EntInstitutionCode>$!batch.securedPartyOrgId</EntInstitutionCode>
+			<CountryCode>$!batch.securedPartyCountryCd</CountryCode>
+			<DistrictCode>$!batch.securedPartyDomeAreaCd</DistrictCode>
+			<LGExpireDate>$!batch.lgMatureDt</LGExpireDate>
+			<LGType>$!batch.lgType</LGType>
+		</FTZ210307>
+		#end
+	</MSG>
+</CFX>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>$!head.ver</VER>
+		<SRC>$!head.src</SRC>
+		<DES>$!head.des</DES>
+		<APP>$!head.app</APP>
+		<MsgNo>$!head.msgNo</MsgNo>
+		<MsgID>$!head.msgID</MsgID>
+		<MsgRef>$!head.msgRef</MsgRef>
+		<WorkDate>$!head.workDate</WorkDate>
+		<EditFlag>$!head.editFlag</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+		#foreach($batch in ${batchList})
+		<FTZ210302>
+			<ReportCode>$!batch.reportId</ReportCode>
+			<SeqNo>$!batch.declareSeq</SeqNo>
+			<SubmitDate>$!batch.declareDt</SubmitDate>
+			<AccOrgCode>$!batch.belongOrgId</AccOrgCode>
+			<Amount>$!batch.bal</Amount>
+			<Currency>$!batch.currencyCd</Currency>
+			<OppSwiftCode>$!batch.abroadOppBankId</OppSwiftCode>
+			<ApplicantName>$!batch.applicantNm</ApplicantName>
+			<ApplicantInstitutionCode>$!batch.applicantOrgId</ApplicantInstitutionCode>
+			<ApplicantCountryCode>$!batch.applicantCountryCd</ApplicantCountryCode>
+			<ApplicantDistrictCode>$!batch.applicantDomeAreaCd</ApplicantDistrictCode>
+			<TransExpireDate>$!batch.bisMatureDt</TransExpireDate>
+			<LCExpireDate>$!batch.lcMatureDt</LCExpireDate>
+			<TermCondition>$!batch.periodCon</TermCondition>
+			<TermLength>$!batch.periodLen</TermLength>
+			<TermUnit>$!batch.periodUnit</TermUnit>
+		</FTZ210302>
+		#end
+	</MSG>
+</CFX>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mapping>
+	<class name="com.topcheer.mq.RhReport">
+		<map-to xml="CFX" />
+		<field name="head" type="com.topcheer.base.velocity.bo.Head">
+			<bind-xml name="HEAD" />
+		</field>
+		<field name="capsule" type="com.topcheer.base.xmlToBean.bo.Capsule">
+			<bind-xml name="MSG" />
+		</field>
+	</class>
+	<class name="com.topcheer.base.velocity.bo.Head">
+		<map-to xml="HEAD" />
+		<field name="ver" type="java.lang.String">
+			<bind-xml name="VER" node="element" />
+		</field>
+		<field name="src" type="java.lang.String">
+			<bind-xml name="SRC" node="element" />
+		</field>
+		<field name="des" type="java.lang.String">
+			<bind-xml name="DES" node="element" />
+		</field>
+		<field name="app" type="java.lang.String">
+			<bind-xml name="APP" node="element" />
+		</field>
+		<field name="msgNo" type="java.lang.String">
+			<bind-xml name="MsgNo" node="element" />
+		</field>
+		<field name="msgID" type="java.lang.String">
+			<bind-xml name="MsgID" node="element" />
+		</field>
+		<field name="msgRef" type="java.lang.String">
+			<bind-xml name="MsgRef" node="element" />
+		</field>
+		<field name="workDate" type="java.lang.String">
+			<bind-xml name="WorkDate" node="element" />
+		</field>
+		<field name="editFlag" type="java.lang.String">
+			<bind-xml name="EditFlag" node="element" />
+		</field>
+		<field name="reserve" type="java.lang.String">
+			<bind-xml name="Reserve" node="element" />
+		</field>
+	</class>
+	<class name="com.topcheer.base.xmlToBean.bo.Capsule">
+		<map-to xml="RETURN" />
+		<field name="list" type="com.topcheer.base.xmlToBean.bo.ReturnBo" collection="collection">
+			<bind-xml name="RETURN" />
+		</field>
+	</class>
+	<class name="com.topcheer.base.xmlToBean.bo.ReturnBo">
+		<map-to xml="RETURN" />
+		<field name="msgNo" type="java.lang.String">
+			<bind-xml name="MsgNo" node="element" />
+		</field>
+		<field name="result" type="java.lang.String">
+			<bind-xml name="Result" node="element" />
+		</field>
+		<field name="addWord" type="java.lang.String">
+			<bind-xml name="AddWord" node="element" />
+		</field>
+		<field name="information" type="java.lang.String">
+			<bind-xml name="Information" node="element" />
+		</field>
+	</class>
+</mapping>

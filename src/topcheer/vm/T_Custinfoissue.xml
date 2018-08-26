@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mapping>
+	<class name="com.wonders.tiles.interfaceXml.bo.Capsule">
+		<map-to xml="root"/>
+			<field name="list" type="com.topcheer.rpt.bo.TCustinfoissueResv" collection="arraylist">
+	      		<bind-xml name="row"/>
+	    	</field>
+	</class>
+	<class name="com.topcheer.rpt.bo.TCustinfoissueResv">
+		<field name="reportId" type="java.lang.String">
+			<bind-xml name="ReportCode" node="element"/>
+		</field>
+		<field name="accOrgCode" type="java.lang.String">
+			<bind-xml name="AccOrgCode" node="element"/>
+		</field>
+		<field name="custNm" type="java.lang.String">
+			<bind-xml name="AccountName" node="element"/>
+		</field>
+		<field name="custNo" type="java.lang.String" >
+			<bind-xml name="AccountNo" node="element"/>
+		</field>
+		<field name="operType" type="java.lang.String" >
+			<bind-xml name="OperType" node="element"/>
+		</field>
+		<field name="declareDt" type="java.lang.String">
+			<bind-xml name="SubmitDate" node="element"/>
+		</field>
+    </class>
+</mapping>

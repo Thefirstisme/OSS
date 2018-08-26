@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="GBK"?>
+<mapping>
+	<class name="com.topcheer.base.xmlToBean.bo.TCustinfoissueResvMap">
+		<map-to xml="CFX"/>
+		<class name="com.topcheer.base.velocity.bo.Head">
+			<map-to xml="HEAD"/>
+			<field name="ver" type="java.lang.String">
+				<bind-xml name="VER" node="element"/>
+			</field>
+			<field name="src" type="java.lang.String">
+				<bind-xml name="SRC" node="element"/>
+			</field>
+			<field name="des" type="java.lang.String">
+				<bind-xml name="DES" node="element"/>
+			</field>
+			<field name="app" type="java.lang.String" >
+				<bind-xml name="APP" node="element"/>
+			</field>
+			<field name="msgNo" type="java.lang.String">
+				<bind-xml name="MsgNo" node="element"/>
+			</field>
+			<field name="msgID" type="java.lang.String" >
+				<bind-xml name="MsgID" node="element"/>
+			</field>
+			<field name="msgRef" type="java.lang.String">
+				<bind-xml name="MsgRef" node="element"/>
+			</field>
+			<field name="workDate" type="java.lang.String">
+				<bind-xml name="WorkDate" node="element"/>
+			</field>
+			<field name="editFlag" type="java.lang.String">
+				<bind-xml name="EditFlag" node="element"/>
+			</field>
+			<field name="reserve" type="java.lang.String">
+				<bind-xml name="Reserve" node="element"/>
+			</field>
+	    </class>
+		<!-- <class name="com.topcheer.base.xmlToBean.bo.Capsule">
+			<map-to xml="MSG"/>
+				<field name="list" type="com.topcheer.rpt.bo.TCustinfoissueResv" collection="arraylist">
+		      		<bind-xml name="FTZ310101"/>
+		    	</field>
+		</class> -->
+		<field name="list" type="com.topcheer.rpt.bo.TCustinfoissueResv" collection="arraylist">
+      		<bind-xml name="FTZ310101"/>
+    	</field>
+		<class name="com.topcheer.rpt.bo.TCustinfoissueResv">
+			<field name="reportId" type="java.lang.String">
+				<bind-xml name="ReportCode" node="element"/>
+			</field>
+			<field name="idenType" type="java.lang.String">
+				<bind-xml name="DocumentType" node="element"/>
+			</field>
+			<field name="idenNo" type="java.lang.String">
+				<bind-xml name="DocumentNo" node="element"/>
+			</field>
+			<field name="custNm" type="java.lang.String" >
+				<bind-xml name="AccountName" node="element"/>
+			</field>
+			<field name="categ" type="java.lang.String">
+				<bind-xml name="AccType" node="element"/>
+			</field>
+			<field name="operType" type="java.lang.String" >
+				<bind-xml name="OperType" node="element"/>
+			</field>
+			<field name="declareDt" type="java.util.Date">
+				<bind-xml name="SubmitDate" node="element"/>
+			</field>
+	    </class>
+	</class>
+</mapping>

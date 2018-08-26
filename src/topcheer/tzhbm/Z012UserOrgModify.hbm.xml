@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.topcheer.oss.user.bo.Z012UserOrgModify" table="z012_user_org_modify" catalog="oss">
+        <id name="relId" type="java.lang.String">
+            <column name="Rel_Id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="userId" type="java.lang.String">
+            <column name="User_Id" length="32" not-null="true" />
+        </property>
+        <property name="orgId" type="java.lang.String">
+            <column name="Org_Id" length="32" not-null="true" />
+        </property>
+        <property name="operatorId" type="java.lang.String">
+            <column name="Operator_Id" length="10" />
+        </property>
+        <property name="modifyTime" type="java.sql.Timestamp">
+            <column name="Modify_Time" length="0" />
+        </property>
+        <property name="effectDt" type="java.util.Date">
+            <column name="Effect_Dt" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

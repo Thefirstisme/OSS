@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "struts-2.0.dtd">
+<struts>
+	<package name="rpt" namespace="/" extends="json-default">
+		<!-- 定义一个拦截器 -->
+		<interceptors>
+			<interceptor name="sessionout"
+				class="com.topcheer.base.iterceptor.SessionIterceptor"></interceptor>
+			<interceptor name="oss_exception"
+				class="com.topcheer.base.iterceptor.ExceptionInterceptor"></interceptor>
+			<interceptor name="oss_page"
+				class="com.topcheer.base.iterceptor.PageIterceptor"></interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="oss_page" />
+				<interceptor-ref name="sessionout" />
+				<interceptor-ref name="oss_exception" />
+			</interceptor-stack>
+		</interceptors>
+		<action name="rptTOffsheetfinDtl_*" class="com.topcheer.rpt.web.TOffsheetfinDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTOffsheetfinDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTOffsheetfinTol_*" class="com.topcheer.rpt.web.TOffsheetfinTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTOffsheetfinTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTResvableprepaymentDtl_*"
+			class="com.topcheer.rpt.web.TResvableprepaymentDtlAction" method="{1}">
+			<result name="success">/rpt/rptTResvableprepaymentDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTResvableprepaymentTol_*"
+			class="com.topcheer.rpt.web.TResvableprepaymentTolAction" method="{1}">
+			<result name="success">/rpt/rptTResvableprepaymentTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTSecuritieDtl_*" class="com.topcheer.rpt.web.TSecuritieDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTSecuritieDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTSecuritieTol_*" class="com.topcheer.rpt.web.TSecuritieTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTSecuritieTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTSysfinaflowOperDtl_*" class="com.topcheer.rpt.web.TSysfinaflowOperDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTSysfinaflowOperDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTSysfinaflowOperTol_*" class="com.topcheer.rpt.web.TSysfinaflowOperTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTSysfinaflowOperTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTSysfinaflowSourDtl_*" class="com.topcheer.rpt.web.TSysfinaflowSourDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTSysfinaflowSourDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTSysfinaflowSourTol_*" class="com.topcheer.rpt.web.TSysfinaflowSourTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTSysfinaflowSourTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTPayableprepaymentDtl_*" class="com.topcheer.rpt.web.TPayableprepaymentDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTPayableprepaymentDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTotaloanDtl_*" class="com.topcheer.rpt.web.TTotaloanDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTotaloanDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTotaloanTol_*" class="com.topcheer.rpt.web.TTotaloanTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTotaloanTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTotareserveDtl_*" class="com.topcheer.rpt.web.TTotareserveDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTotareserveDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTotareserveTol_*" class="com.topcheer.rpt.web.TTotareserveTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTotareserveTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTradcurraccoOperDtl_*" class="com.topcheer.rpt.web.TTradcurraccoOperDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTradcurraccoOperDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTradcurraccoOperTol_*" class="com.topcheer.rpt.web.TTradcurraccoOperTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTradcurraccoOperTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTradcurraccoSourDtl_*" class="com.topcheer.rpt.web.TTradcurraccoSourDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTradcurraccoSourDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTTradcurraccoSourTol_*" class="com.topcheer.rpt.web.TTradcurraccoSourTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTTradcurraccoSourTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTVaultcashDtl_*" class="com.topcheer.rpt.web.TVaultcashDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTVaultcashDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTVaultcashTol_*" class="com.topcheer.rpt.web.TVaultcashTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTVaultcashTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTAccopayatempDtl_*" class="com.topcheer.rpt.web.TAccopayatempDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTAccopayatempDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTAccopayatempTol_*" class="com.topcheer.rpt.web.TAccopayatempTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTAccopayatempTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTAgententrdloanfundDtl_*"
+			class="com.topcheer.rpt.web.TAgententrdloanfundDtlAction" method="{1}">
+			<result name="success">/rpt/rptTAgententrdloanfundDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTAgententrdloanfundTol_*"
+			class="com.topcheer.rpt.web.TAgententrdloanfundTolAction" method="{1}">
+			<result name="success">/rpt/rptTAgententrdloanfundTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTAssesoldrepuDtl_*" class="com.topcheer.rpt.web.TAssesoldrepuDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTAssesoldrepuDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTAssesoldrepuTol_*" class="com.topcheer.rpt.web.TAssesoldrepuTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTAssesoldrepuTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTBorrcentbankDtl_*" class="com.topcheer.rpt.web.TBorrcentbankDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTBorrcentbankDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTBorrcentbankTol_*" class="com.topcheer.rpt.web.TBorrcentbankTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTBorrcentbankTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTBuybackassetacquiredDtl_*"
+			class="com.topcheer.rpt.web.TBuybackassetacquiredDtlAction" method="{1}">
+			<result name="success">/rpt/rptTBuybackassetacquiredDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTBuybackassetacquiredTol_*"
+			class="com.topcheer.rpt.web.TBuybackassetacquiredTolAction" method="{1}">
+			<result name="success">/rpt/rptTBuybackassetacquiredTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCentbankfinsavdepoDtl_*"
+			class="com.topcheer.rpt.web.TCentbankfinsavdepoDtlAction" method="{1}">
+			<result name="success">/rpt/rptTCentbankfinsavdepoDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCentbankfinsavdepoTol_*"
+			class="com.topcheer.rpt.web.TCentbankfinsavdepoTolAction" method="{1}">
+			<result name="success">/rpt/rptTCentbankfinsavdepoTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCentbankreserveDtl_*" class="com.topcheer.rpt.web.TCentbankreserveDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCentbankreserveDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCentbankreserveTol_*" class="com.topcheer.rpt.web.TCentbankreserveTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCentbankreserveTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCentbankspecdepoDtl_*" class="com.topcheer.rpt.web.TCentbankspecdepoDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCentbankspecdepoDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCentbankspecdepoTol_*" class="com.topcheer.rpt.web.TCentbankspecdepoTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCentbankspecdepoTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTPayableprepaymentTol_*" class="com.topcheer.rpt.web.TPayableprepaymentTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTPayableprepaymentTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCorpdepoDtl_*" class="com.topcheer.rpt.web.TCorpdepoDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCorpdepoDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCorpdepoTol_*" class="com.topcheer.rpt.web.TCorpdepoTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCorpdepoTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTEquityotherinvestDtl_*" class="com.topcheer.rpt.web.TEquityotherinvestDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTEquityotherinvestDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTEquityotherinvestTol_*" class="com.topcheer.rpt.web.TEquityotherinvestTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTEquityotherinvestTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTForextradespotOperDtl_*"
+			class="com.topcheer.rpt.web.TForextradespotOperDtlAction" method="{1}">
+			<result name="success">/rpt/rptTForextradespotOperDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTForextradespotOperTol_*"
+			class="com.topcheer.rpt.web.TForextradespotOperTolAction" method="{1}">
+			<result name="success">/rpt/rptTForextradespotOperTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTForextradespotSourDtl_*"
+			class="com.topcheer.rpt.web.TForextradespotSourDtlAction" method="{1}">
+			<result name="success">/rpt/rptTForextradespotSourDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTForextradespotSourTol_*"
+			class="com.topcheer.rpt.web.TForextradespotSourTolAction" method="{1}">
+			<result name="success">/rpt/rptTForextradespotSourTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFtuEntrdsavDtl_*" class="com.topcheer.rpt.web.TFtuEntrdsavDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFtuEntrdsavDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFtuEntrdsavTol_*" class="com.topcheer.rpt.web.TFtuEntrdsavTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFtuEntrdsavTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFtuFinabondDtl_*" class="com.topcheer.rpt.web.TFtuFinabondDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFtuFinabondDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFtuFinabondTol_*" class="com.topcheer.rpt.web.TFtuFinabondTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFtuFinabondTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFtuMedlongborrDtl_*" class="com.topcheer.rpt.web.TFtuMedlongborrDtlAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFtuMedlongborrDtl_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFtuMedlongborrTol_*" class="com.topcheer.rpt.web.TFtuMedlongborrTolAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFtuMedlongborrTol_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="rptTAgencybonds_*" class="com.topcheer.rpt.web.TAgencybondsAction"
+			method="{1}">
+			<result name="success">/rpt/rptTAgencybonds_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTBankaccepbillPay_*" class="com.topcheer.rpt.web.TBankaccepbillPayAction"
+			method="{1}">
+			<result name="success">/rpt/rptTBankaccepbillPay_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTBankaccepbillResv_*" class="com.topcheer.rpt.web.TBankaccepbillResvAction"
+			method="{1}">
+			<result name="success">/rpt/rptTBankaccepbillResv_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCurrswaps_*" class="com.topcheer.rpt.web.TCurrswapsAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCurrswaps_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFteAcctinfo_*" class="com.topcheer.rpt.web.TFteAcctinfoAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFteAcctinfo_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTFwdexeslt_*" class="com.topcheer.rpt.web.TFwdexesltAction"
+			method="{1}">
+			<result name="success">/rpt/rptTFwdexeslt_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTLcconfirmExp_*" class="com.topcheer.rpt.web.TLcconfirmExpAction"
+			method="{1}">
+			<result name="success">/rpt/rptTLcconfirmExp_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTLcconfirmImp_*" class="com.topcheer.rpt.web.TLcconfirmImpAction"
+			method="{1}">
+			<result name="success">/rpt/rptTLcconfirmImp_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTLcPay_*" class="com.topcheer.rpt.web.TLcPayAction"
+			method="{1}">
+			<result name="success">/rpt/rptTLcPay_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTLcResv_*" class="com.topcheer.rpt.web.TLcResvAction"
+			method="{1}">
+			<result name="success">/rpt/rptTLcResv_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTLgstandbyPay_*" class="com.topcheer.rpt.web.TLgstandbyPayAction"
+			method="{1}">
+			<result name="success">/rpt/rptTLgstandbyPay_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTLgstandbyResv_*" class="com.topcheer.rpt.web.TLgstandbyResvAction"
+			method="{1}">
+			<result name="success">/rpt/rptTLgstandbyResv_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptCTCd_*" class="com.topcheer.rpt.web.CTCdAction"
+			method="{1}">
+			<result name="success">/rpt/rptCTCd_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptpublish_*" class="com.topcheer.rpt.web.TpublishAction"
+			method="{1}">
+			<result name="success">/rpt/rptpublish_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptpublishHis_*" class="com.topcheer.rpt.web.TpublishHISAction"
+			method="{1}">
+			<result name="success">/rpt/rptpublishHis_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptTCustinfoissueResv_*" class="com.topcheer.rpt.web.TCustinfoissueResvAction"
+			method="{1}">
+			<result name="success">/rpt/rptTCustinfoissueResv_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="rptUploadFile_*" class="com.topcheer.file.UploadAction"
+			method="{1}">
+			<result name="success">/admin/file/upload_file.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		
+		<!-- 新增加自动上报错误显示的配置文件 -->
+		<action name="rptTErrorCountAction_*" class="tErrorCountAction"
+			method="{1}">
+			<result name="success">/rpt/t_error_count.jsp.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>$!head.ver</VER>
+		<SRC>$!head.src</SRC>
+		<DES>$!head.des</DES>
+		<APP>$!head.app</APP>
+		<MsgNo>$!head.msgNo</MsgNo>
+		<MsgID>$!head.msgID</MsgID>
+		<MsgRef>$!head.msgRef</MsgRef>
+		<WorkDate>$!head.workDate</WorkDate>
+		<EditFlag>$!head.editFlag</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 	#foreach($batch in ${batchList})
+		<FTZ210101>
+			<BATCH>
+				<AccountNo>$!batch.acctId</AccountNo>
+				<AccountName>$!batch.custNm</AccountName>
+				<AccType>$!batch.categ</AccType>
+				<SubAccountNo>$!batch.subaccountno</SubAccountNo>
+				<DepositRate>$!batch.depoRate</DepositRate>
+				<CustomType>$!batch.custType</CustomType>
+				<BalanceCode>$!batch.balanceCd</BalanceCode>
+				<DocumentType>$!batch.idenType</DocumentType>
+				<DocumentNo>$!batch.idenNo</DocumentNo>
+				<Currency>$!batch.currencyCd</Currency>
+				<Balance>$!batch.dayBalFill</Balance>
+				<SubmitDate>$!batch.declareDt</SubmitDate>
+				<TotalCount>$!batch.tolRecord</TotalCount>
+				<AccOrgCode>$!batch.openOrgId</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+				#foreach($tran in ${batch.tranList})
+				<TRAN>
+					<SeqNo>$!tran.detailSeq</SeqNo>
+					<CDFlag>$!tran.outInAcctInd</CDFlag>
+					<TranDate>$!tran.acctingDt</TranDate>
+					<OrgTranDate>$!tran.origTxnDt</OrgTranDate>
+					<Amount>$!tran.bal</Amount>
+					<OppAccount>$!tran.oppositeAcctno</OppAccount>
+					<OppName>$!tran.oppositeAcctName</OppName>
+					<OppBankCode>$!tran.oppositeBankCd</OppBankCode>
+					<CountryCode>$!tran.countryCd</CountryCode>
+					<DistrictCode>$!tran.domechargeAreaCd</DistrictCode>
+					<TranType>$!tran.txnAttri</TranType>
+					<TermLength>$!tran.periodLen</TermLength>
+					<TermUnit>$!tran.periodUnit</TermUnit>
+					<ExpireDate>$!tran.matureDt</ExpireDate>
+				</TRAN>
+				#end
+			</TRANLIST>
+
+		</FTZ210101>
+		#end
+	</MSG>
+</CFX>

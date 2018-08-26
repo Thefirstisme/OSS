@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+    
+<beans> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"><value>classpath:/topcheer/topcheer.properties</value></property>
+	</bean>
+	<bean id="dynamicSessionFactory" class="com.topcheer.base.dic.util.DynamicSessionFactoryImpl">
+	    <property name="defaultTargetSessionFactory" ref="sessionFactory"/>
+	    <property name="targetSessionFactorys">
+			<map key-type="java.lang.String">
+				<!-- <entry value-ref="mySQLSessionFactory" key="Mysql"></entry>
+				<entry value-ref="sqlServerSessionFactory" key="SqlServer"></entry> -->
+				<entry value-ref="sessionFactory" key="Oracle"></entry>
+			</map>
+	    </property>
+	</bean>
+	<bean id="dataSource_Oracle" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"><value>${jdbc.oracle.driverClassName}</value></property>
+		<property name="url"><value>${jdbc.oracle.url}</value></property>
+		<property name="username"><value>${jdbc.oracle.userName}</value></property>
+		<property name="password"><value>${jdbc.oracle.password}</value></property>
+		<property name="initialSize"><value>3</value></property>
+		<property name="minIdle"><value>2</value></property>
+		<property name="maxActive"><value>50</value></property>
+		<property name="validationQuery"><value>${jdbc.oracle.validationSql}</value></property>
+		<property name="testOnBorrow"><value>true</value></property>
+	</bean>
+
+	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<!-- <bean id="sessionFactory" class="com.topcheer.jdbc.dbmanager.MyLocalSessionFactoryBean"> -->
+	    <property name="dataSource" ref="dataSource_Oracle"/>
+		<property name="packagesToScan">
+			<list>
+				<value>com.topcheer.base.dic.model</value>
+			</list>
+		</property>
+	    <property name="mappingDirectoryLocations">
+	        <list>
+	            <value>classpath:/topcheer/boshbm/</value>
+	        </list>
+	    </property>
+	    <property name="hibernateProperties">
+	        <props>
+	            <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+	            <prop key="hibernate.show_sql">true</prop>
+	            <prop key="hibernate.jdbc.fetch_size">25</prop>
+	            <prop key="hibernate.jdbc.batch_size">25</prop>
+	            <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+	            <!-- <prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop> -->
+	        </props>
+	    </property>
+	</bean>
+    
+    <!-- 数据字典管理 开始 -->
+    <bean id="dicDAO" class="com.topcheer.base.dic.dao.DicDAO">
+        <property name="sessionFactory" ref="dynamicSessionFactory"/>
+    </bean>
+    <!-- 数据字典管理 结束 -->
+</beans>

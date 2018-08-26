@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mapping>
+	<class name="com.wonders.tiles.interfaceXml.bo.Capsule">
+		<map-to xml="root"/>
+			<field name="list" type="com.topcheer.rpt.bo.TCustinfoissueResv" collection="arraylist">
+	      		<bind-xml name="row"/>
+	    	</field>
+	</class>
+	<class name="com.topcheer.rpt.bo.TCustinfoissueResv">
+		<field name="reportId" type="java.lang.String">
+			<bind-xml name="reportId" node="element"/>
+		</field>
+		<field name="idenType" type="java.lang.String">
+			<bind-xml name="idenType" node="element"/>
+		</field>
+		<field name="idenNo" type="java.lang.String">
+			<bind-xml name="idenNo" node="element"/>
+		</field>
+		<field name="custNm" type="java.lang.String" >
+			<bind-xml name="custNm" node="element"/>
+		</field>
+		<field name="categ" type="java.lang.String">
+			<bind-xml name="categ" node="element"/>
+		</field>
+		<field name="operType" type="java.lang.String" >
+			<bind-xml name="operType" node="element"/>
+		</field>
+		<field name="declareDt" type="java.lang.String">
+			<bind-xml name="declareDt" node="element"/>
+		</field>
+		<field name="openDt" type="java.lang.String">
+			<bind-xml name="openDt" node="element"/>
+		</field>
+		<field name="closeDt" type="java.lang.String">
+			<bind-xml name="closeDt" node="element"/>
+		</field>
+    </class>
+</mapping>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="gb2312"?>
+<quartz><job><id>1</id><description>BOS_TO_RH</description><job-detail><name>J1</name><group>DEFAULT</group><job-class>com.topcheer.rpt.listene.AutoReport</job-class></job-detail><trigger><cron><name>T1</name><group>DEFAULT</group><job-name>J1</job-name><job-group>DEFAULT</job-group><cron-expression>1   * * ? *</cron-expression></cron></trigger></job></quartz>

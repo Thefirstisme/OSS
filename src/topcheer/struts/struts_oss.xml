@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"/resource/dtd/struts-2.1.dtd">
+
+<struts>
+	<!-- Add packages here -->
+	<!-- 用户登录 -->  
+	
+	<package name="login" namespace="/admin/login" extends="struts-default">
+		<action name="login_*" class="com.topcheer.oss.user.web.LoginAction" method="{1}">
+			<result name="success">/admin/user/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+	<package name="org" namespace="/" extends="json-default">
+
+        <!-- 定义一个拦截器 -->  
+        <interceptors>  
+            <interceptor name="sessionout" class="com.topcheer.base.iterceptor.SessionIterceptor"></interceptor>
+            <interceptor name="oss_exception" class="com.topcheer.base.iterceptor.ExceptionInterceptor"></interceptor>    
+            <interceptor name="oss_page" class="com.topcheer.base.iterceptor.PageIterceptor"></interceptor>    
+            <!-- 拦截器栈 -->  
+            <interceptor-stack name="mydefault">  
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="oss_page"/>  
+                <interceptor-ref name="sessionout"/>  
+                <interceptor-ref name="oss_exception"/>
+            </interceptor-stack>  
+        </interceptors>  
+        
+		<global-exception-mappings>
+	    	<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+	    </global-exception-mappings>
+	    
+		<action name="org_*" class="com.topcheer.oss.org.web.OrgAction" method="{1}">
+			<result name="success">/org/org_{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="getOrg" class="com.topcheer.oss.org.web.OrgAction" method="getOrg">
+			<result name="success">/org/OrgList.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		<action name="updateOrg" class="com.topcheer.oss.org.web.OrgAction" method="updateOrg">
+			<result name="success">/org/editOrg.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="user_*" class="com.topcheer.oss.user.web.Z010UserAction" method="{1}">
+			<result name="success">/admin/user/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="source_*" class="com.topcheer.oss.source.web.Z010SourceAction" method="{1}">
+			<result name="success">/admin/source/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="para_*" class="com.topcheer.oss.para.web.Z99TechParaAction" method="{1}">
+			<result name="success">/admin/para/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="role_*" class="com.topcheer.oss.role.web.Z010RoleAction" method="{1}">
+			<result name="success">/admin/role/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="rolegroup_*" class="com.topcheer.oss.rolegroup.web.Z010RolegroupAction" method="{1}">
+			<result name="success">/admin/rolegroup/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="log_*" class="com.topcheer.oss.log.web.OssLogAction" method="{1}">
+			<result name="success">/admin/log/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+
+		<action name="tquery_*" class="com.topcheer.base.tquery.web.QueryAction" method="{1}">
+			<result name="success">/tquery/{1}.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="mydefault"></interceptor-ref>
+		</action>
+		
+	</package>
+</struts>

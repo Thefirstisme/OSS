@@ -1,0 +1,780 @@
+[0529 16:53:28 753 INFO ] [http-8080-1] rpt.service.TpublishService - 反馈人行的XML ent.getMsgid---》613002100003201405290000000000
+[0529 17:23:36 353 DEBUG] [http-8080-8] rpt.web.TpublishAction - 向人行发送的msgids--->613002100003201405290000000000
+[0529 17:23:36 460 DEBUG] [http-8080-8] rpt.web.TpublishAction - 向人行发送的entList.size()--->1
+[0529 17:23:36 462 DEBUG] [http-8080-8] rpt.service.TpublishService - 向人行发送的报文id----->613002100003201405290000000000这是第 1/1 个报文
+[0529 17:23:36 462 INFO ] [http-8080-8] rpt.service.TpublishService - <?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>1.0</VER>
+		<SRC>613002100003</SRC>
+		<DES>100000000000</DES>
+		<APP>FTZMIS</APP>
+		<MsgNo>210101</MsgNo>
+		<MsgID>613002100003201405290000000000</MsgID>
+		<MsgRef>613002100003201405290000000000</MsgRef>
+		<WorkDate>20140529</WorkDate>
+		<EditFlag>1</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 			<FTZ210101>
+			<BATCH>
+				<AccountNo>FTN0000001</AccountNo>
+				<AccountName>上海测试用户</AccountName>
+				<AccType>02</AccType>
+				<SubAccountNo>06000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MGA/22MGA</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>555666</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>1000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTI0000001</AccountNo>
+				<AccountName>个人测试一</AccountName>
+				<AccType>04</AccType>
+				<SubAccountNo>7000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>2</CustomType>
+				<BalanceCode>12MI2/22MI2</BalanceCode>
+				<DocumentType>21</DocumentType>
+				<DocumentNo>666777</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>1000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTF0000001</AccountNo>
+				<AccountName>个人测试二</AccountName>
+				<AccType>05</AccType>
+				<SubAccountNo>8000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>2</CustomType>
+				<BalanceCode>12MI3/22MI3</BalanceCode>
+				<DocumentType>22</DocumentType>
+				<DocumentNo>777888</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>1000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000007</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>23000000001</SubAccountNo>
+				<DepositRate>0.033000</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MGB/22MGB</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>4000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000007</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>23000000002</SubAccountNo>
+				<DepositRate>0.028500</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MGB/22MGB</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>4000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000006</AccountNo>
+				<AccountName>上海和广通信技术股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>03000000006</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>776274607</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>20701000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000001</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>03000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>4000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000001</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>05000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>USD</Currency>
+				<Balance>4850000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000001</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>05000000003</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>JPY</Currency>
+				<Balance>15000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290000017</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+			</MSG>
+</CFX>
+
+[0529 17:26:39 959 DEBUG] [http-8080-4] rpt.web.TpublishAction - 向人行发送的msgids--->613002100003201405120000002771,613002100003201405120000002770
+[0529 17:26:39 997 DEBUG] [http-8080-4] rpt.web.TpublishAction - 向人行发送的entList.size()--->2
+[0529 17:26:39 998 DEBUG] [http-8080-4] rpt.service.TpublishService - 向人行发送的报文id----->613002100003201405120000002770这是第 1/2 个报文
+[0529 17:26:39 998 INFO ] [http-8080-4] rpt.service.TpublishService - <?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>1.0</VER>
+		<SRC>613002100003</SRC>
+		<DES>100000000000</DES>
+		<APP>FTZMIS</APP>
+		<MsgNo>210106</MsgNo>
+		<MsgID>613002100003201405120000002770</MsgID>
+		<MsgRef>613002100003201405120000002770</MsgRef>
+		<WorkDate>20140512</WorkDate>
+		<EditFlag>1</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 			<FTZ210106>
+			<BATCH>
+				<AccountNo>231001001</AccountNo>
+				<Currency>CNY</Currency>
+				<Balance>100000000</Balance>
+				<BalanceCode>12MK1</BalanceCode>
+				<SubmitDate>20140512</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290000017</AccOrgCode>
+			</BATCH>
+			
+			<TRANLIST>
+							</TRANLIST>
+			
+		</FTZ210106>
+			</MSG>
+</CFX>
+
+[0529 17:26:40 045 DEBUG] [http-8080-4] rpt.service.TpublishService - 向人行发送的报文id----->613002100003201405120000002771这是第 2/2 个报文
+[0529 17:26:40 045 INFO ] [http-8080-4] rpt.service.TpublishService - <?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>1.0</VER>
+		<SRC>613002100003</SRC>
+		<DES>100000000000</DES>
+		<APP>FTZMIS</APP>
+		<MsgNo>210206</MsgNo>
+		<MsgID>613002100003201405120000002771</MsgID>
+		<MsgRef>613002100003201405120000002771</MsgRef>
+		<WorkDate>20140512</WorkDate>
+		<EditFlag>1</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 			<FTZ210206>
+			<BATCH>
+				<AccountNo>110001001</AccountNo>
+				<Currency>CNY</Currency>
+				<Balance>102000000</Balance>
+				<BalanceCode>12MOB/22MOB</BalanceCode>
+				<SubmitDate>20140512</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290000017</AccOrgCode>
+			</BATCH>
+			
+			<TRANLIST>
+							</TRANLIST>
+		
+		</FTZ210206>
+			</MSG>
+</CFX>
+
+[0529 17:29:45 105 DEBUG] [http-8080-2] rpt.web.TpublishAction - 向人行发送的msgids--->613002100003201405120000002771,613002100003201405120000002770
+[0529 17:29:45 134 DEBUG] [http-8080-2] rpt.web.TpublishAction - 向人行发送的entList.size()--->2
+[0529 17:29:45 135 DEBUG] [http-8080-2] rpt.service.TpublishService - 向人行发送的报文id----->613002100003201405120000002770这是第 1/2 个报文
+[0529 17:29:45 135 INFO ] [http-8080-2] rpt.service.TpublishService - <?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>1.0</VER>
+		<SRC>613002100003</SRC>
+		<DES>100000000000</DES>
+		<APP>FTZMIS</APP>
+		<MsgNo>210106</MsgNo>
+		<MsgID>613002100003201405120000002770</MsgID>
+		<MsgRef>613002100003201405120000002770</MsgRef>
+		<WorkDate>20140512</WorkDate>
+		<EditFlag>1</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 			<FTZ210106>
+			<BATCH>
+				<AccountNo>231001001</AccountNo>
+				<Currency>CNY</Currency>
+				<Balance>100000000</Balance>
+				<BalanceCode>12MK1</BalanceCode>
+				<SubmitDate>20140512</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290000017</AccOrgCode>
+			</BATCH>
+			
+			<TRANLIST>
+							</TRANLIST>
+			
+		</FTZ210106>
+			</MSG>
+</CFX>
+
+[0529 17:31:31 734 DEBUG] [http-8080-2] rpt.service.TpublishService - 向人行发送的报文id----->613002100003201405120000002771这是第 2/2 个报文
+[0529 17:31:31 735 INFO ] [http-8080-2] rpt.service.TpublishService - <?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>1.0</VER>
+		<SRC>613002100003</SRC>
+		<DES>100000000000</DES>
+		<APP>FTZMIS</APP>
+		<MsgNo>210206</MsgNo>
+		<MsgID>613002100003201405120000002771</MsgID>
+		<MsgRef>613002100003201405120000002771</MsgRef>
+		<WorkDate>20140512</WorkDate>
+		<EditFlag>1</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 			<FTZ210206>
+			<BATCH>
+				<AccountNo>110001001</AccountNo>
+				<Currency>CNY</Currency>
+				<Balance>102000000</Balance>
+				<BalanceCode>12MOB/22MOB</BalanceCode>
+				<SubmitDate>20140512</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290000017</AccOrgCode>
+			</BATCH>
+			
+			<TRANLIST>
+							</TRANLIST>
+		
+		</FTZ210206>
+			</MSG>
+</CFX>
+
+[0529 17:37:59 060 DEBUG] [http-8080-1] rpt.web.TpublishAction - 向人行发送的msgids--->613002100003201405290000000000
+[0529 17:37:59 087 DEBUG] [http-8080-1] rpt.web.TpublishAction - 向人行发送的entList.size()--->1
+[0529 17:37:59 088 DEBUG] [http-8080-1] rpt.service.TpublishService - 向人行发送的报文id----->613002100003201405290000000000这是第 1/1 个报文
+[0529 17:37:59 088 INFO ] [http-8080-1] rpt.service.TpublishService - <?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>1.0</VER>
+		<SRC>613002100003</SRC>
+		<DES>100000000000</DES>
+		<APP>FTZMIS</APP>
+		<MsgNo>210101</MsgNo>
+		<MsgID>613002100003201405290000000000</MsgID>
+		<MsgRef>613002100003201405290000000000</MsgRef>
+		<WorkDate>20140529</WorkDate>
+		<EditFlag>1</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 			<FTZ210101>
+			<BATCH>
+				<AccountNo>FTN0000001</AccountNo>
+				<AccountName>上海测试用户</AccountName>
+				<AccType>02</AccType>
+				<SubAccountNo>06000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MGA/22MGA</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>555666</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>1000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTI0000001</AccountNo>
+				<AccountName>个人测试一</AccountName>
+				<AccType>04</AccType>
+				<SubAccountNo>7000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>2</CustomType>
+				<BalanceCode>12MI2/22MI2</BalanceCode>
+				<DocumentType>21</DocumentType>
+				<DocumentNo>666777</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>1000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTF0000001</AccountNo>
+				<AccountName>个人测试二</AccountName>
+				<AccType>05</AccType>
+				<SubAccountNo>8000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>2</CustomType>
+				<BalanceCode>12MI3/22MI3</BalanceCode>
+				<DocumentType>22</DocumentType>
+				<DocumentNo>777888</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>1000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000007</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>23000000001</SubAccountNo>
+				<DepositRate>0.033000</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MGB/22MGB</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>4000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000007</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>23000000002</SubAccountNo>
+				<DepositRate>0.028500</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MGB/22MGB</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>4000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000006</AccountNo>
+				<AccountName>上海和广通信技术股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>03000000006</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>776274607</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>20701000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000001</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>03000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>CNY</Currency>
+				<Balance>4000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000001</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>05000000001</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>USD</Currency>
+				<Balance>4850000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290002012</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+				<FTZ210101>
+			<BATCH>
+				<AccountNo>FTE0000001</AccountNo>
+				<AccountName>上海亚升实业股份有限公司</AccountName>
+				<AccType>01</AccType>
+				<SubAccountNo>05000000003</SubAccountNo>
+				<DepositRate>0.003850</DepositRate>
+				<CustomType>1</CustomType>
+				<BalanceCode>12MG4/22MG4</BalanceCode>
+				<DocumentType>11</DocumentType>
+				<DocumentNo>782836020</DocumentNo>
+				<Currency>JPY</Currency>
+				<Balance>15000000</Balance>
+				<SubmitDate>20140514</SubmitDate>
+				<TotalCount>0</TotalCount>
+				<AccOrgCode>313290000017</AccOrgCode>
+			</BATCH>
+	
+			<TRANLIST>
+							</TRANLIST>
+
+		</FTZ210101>
+			</MSG>
+</CFX>
+
+[0529 17:43:14 146 INFO ] [http-8080-3] rpt.service.TpublishService - 反馈人行的XML ent.getMsgid---》613002100003201405290000000000
+[0529 17:43:14 190 ERROR] [http-8080-3] topcheer.jdbc.JdbcOracleBaseService - SQLException
+java.sql.SQLException: ORA-00001: 违反唯一约束条件 (FXRP.ZMQ_T_PUBLISH_RPT_PK)
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:111)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:330)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:287)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:742)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:212)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:951)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1159)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3284)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3367)
+	at com.topcheer.jdbc.JdbcOracleBaseService.getCount(JdbcOracleBaseService.java:964)
+	at com.topcheer.rpt.service.TpublishService.receiveToSend(TpublishService.java:579)
+	at com.topcheer.rpt.service.TpublishService.receiveToSend(TpublishService.java:531)
+	at com.topcheer.rpt.service.TpublishService.addPublishRpt(TpublishService.java:521)
+	at com.topcheer.rpt.service.TpublishService.toOKCommitRH(TpublishService.java:326)
+	at com.topcheer.rpt.service.TpublishService.toCreateXml(TpublishService.java:848)
+	at com.topcheer.rpt.service.TpublishService$$FastClassByCGLIB$$f0d59b40.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.topcheer.rpt.service.TpublishService$$EnhancerByCGLIB$$ce56df2c.toCreateXml(<generated>)
+	at com.topcheer.rpt.web.TpublishAction.toShangBao(TpublishAction.java:150)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeAction(DefaultActionInvocation.java:450)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeActionOnly(DefaultActionInvocation.java:289)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:252)
+	at com.topcheer.base.iterceptor.ExceptionInterceptor.intercept(ExceptionInterceptor.java:17)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.topcheer.base.iterceptor.SessionIterceptor.intercept(SessionIterceptor.java:66)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.topcheer.base.iterceptor.PageIterceptor.intercept(PageIterceptor.java:26)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.DeprecationInterceptor.intercept(DeprecationInterceptor.java:41)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:256)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor.doIntercept(DefaultWorkflowInterceptor.java:167)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.validator.ValidationInterceptor.doIntercept(ValidationInterceptor.java:265)
+	at org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor.doIntercept(AnnotationValidationInterceptor.java:68)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.intercept(ConversionErrorInterceptor.java:138)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:249)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:249)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.StaticParametersInterceptor.intercept(StaticParametersInterceptor.java:191)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.MultiselectInterceptor.intercept(MultiselectInterceptor.java:73)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:91)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.FileUploadInterceptor.intercept(FileUploadInterceptor.java:252)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor.intercept(ModelDrivenInterceptor.java:100)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor.intercept(ScopedModelDrivenInterceptor.java:141)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:145)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:171)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:139)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:164)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:193)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:189)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.impl.StrutsActionProxy.execute(StrutsActionProxy.java:54)
+	at org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:562)
+	at org.apache.struts2.dispatcher.ng.ExecuteOperations.executeAction(ExecuteOperations.java:77)
+	at org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:99)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:861)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:606)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Unknown Source)
+[0529 17:45:09 801 ERROR] [http-8080-4] topcheer.jdbc.JdbcOracleBaseService - SQLException
+java.sql.SQLException: ORA-00904: "LAST_UPDATE_TIME": 标识符无效
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:111)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:330)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:287)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:742)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:212)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:795)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1030)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:835)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1123)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3284)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3328)
+	at com.topcheer.jdbc.JdbcOracleBaseService.getResultPojoList(JdbcOracleBaseService.java:96)
+	at com.topcheer.jdbc.JdbcOracleBaseService.getResultPojoList(JdbcOracleBaseService.java:78)
+	at com.topcheer.rpt.service.TCustinfoissueResvService.findTCustinfoissueResvList(TCustinfoissueResvService.java:27)
+	at com.topcheer.rpt.service.TCustinfoissueResvService.getByPage(TCustinfoissueResvService.java:61)
+	at com.topcheer.rpt.service.TCustinfoissueResvService$$FastClassByCGLIB$$ca927f21.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.topcheer.rpt.service.TCustinfoissueResvService$$EnhancerByCGLIB$$d2192617.getByPage(<generated>)
+	at com.topcheer.rpt.web.TCustinfoissueResvAction.toList(TCustinfoissueResvAction.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeAction(DefaultActionInvocation.java:450)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeActionOnly(DefaultActionInvocation.java:289)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:252)
+	at com.topcheer.base.iterceptor.ExceptionInterceptor.intercept(ExceptionInterceptor.java:17)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.topcheer.base.iterceptor.SessionIterceptor.intercept(SessionIterceptor.java:66)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.topcheer.base.iterceptor.PageIterceptor.intercept(PageIterceptor.java:26)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.DeprecationInterceptor.intercept(DeprecationInterceptor.java:41)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:256)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor.doIntercept(DefaultWorkflowInterceptor.java:167)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.validator.ValidationInterceptor.doIntercept(ValidationInterceptor.java:265)
+	at org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor.doIntercept(AnnotationValidationInterceptor.java:68)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.intercept(ConversionErrorInterceptor.java:138)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:249)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:249)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.StaticParametersInterceptor.intercept(StaticParametersInterceptor.java:191)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.MultiselectInterceptor.intercept(MultiselectInterceptor.java:73)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:91)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.FileUploadInterceptor.intercept(FileUploadInterceptor.java:252)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor.intercept(ModelDrivenInterceptor.java:100)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor.intercept(ScopedModelDrivenInterceptor.java:141)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:145)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:171)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:98)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:139)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:164)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:193)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:189)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.impl.StrutsActionProxy.execute(StrutsActionProxy.java:54)
+	at org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:562)
+	at org.apache.struts2.dispatcher.ng.ExecuteOperations.executeAction(ExecuteOperations.java:77)
+	at org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:99)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:861)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:606)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Unknown Source)

@@ -1,0 +1,1 @@
+jar cvf topcheer-ftz.jar C com/*

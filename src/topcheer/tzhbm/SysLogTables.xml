@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.topcheer.oss.log.bo.SysLogTables" table="tables" catalog="information_schema">
+        <composite-id>
+            <key-property name="tableCatalog" type="java.lang.String">
+                <column name="TABLE_CATALOG" length="512" />
+            </key-property>
+            <key-property name="tableSchema" type="java.lang.String">
+                <column name="TABLE_SCHEMA" length="64" />
+            </key-property>
+            <key-property name="tableName" type="java.lang.String">
+                <column name="TABLE_NAME" length="64" />
+            </key-property>
+            <key-property name="tableType" type="java.lang.String">
+                <column name="TABLE_TYPE" length="64" />
+            </key-property>
+            <key-property name="engine" type="java.lang.String">
+                <column name="ENGINE" length="64" />
+            </key-property>
+            <key-property name="version" type="java.lang.Long">
+                <column name="VERSION" />
+            </key-property>
+            <key-property name="rowFormat" type="java.lang.String">
+                <column name="ROW_FORMAT" length="10" />
+            </key-property>
+            <key-property name="tableRows" type="java.lang.Long">
+                <column name="TABLE_ROWS" />
+            </key-property>
+            <key-property name="avgRowLength" type="java.lang.Long">
+                <column name="AVG_ROW_LENGTH" />
+            </key-property>
+            <key-property name="dataLength" type="java.lang.Long">
+                <column name="DATA_LENGTH" />
+            </key-property>
+            <key-property name="maxDataLength" type="java.lang.Long">
+                <column name="MAX_DATA_LENGTH" />
+            </key-property>
+            <key-property name="indexLength" type="java.lang.Long">
+                <column name="INDEX_LENGTH" />
+            </key-property>
+            <key-property name="dataFree" type="java.lang.Long">
+                <column name="DATA_FREE" />
+            </key-property>
+            <key-property name="autoIncrement" type="java.lang.Long">
+                <column name="AUTO_INCREMENT" />
+            </key-property>
+            <key-property name="createTime" type="java.sql.Timestamp">
+                <column name="CREATE_TIME" length="0" />
+            </key-property>
+            <key-property name="updateTime" type="java.sql.Timestamp">
+                <column name="UPDATE_TIME" length="0" />
+            </key-property>
+            <key-property name="checkTime" type="java.sql.Timestamp">
+                <column name="CHECK_TIME" length="0" />
+            </key-property>
+            <key-property name="tableCollation" type="java.lang.String">
+                <column name="TABLE_COLLATION" length="32" />
+            </key-property>
+            <key-property name="checksum" type="java.lang.Long">
+                <column name="CHECKSUM" />
+            </key-property>
+            <key-property name="createOptions" type="java.lang.String">
+                <column name="CREATE_OPTIONS" />
+            </key-property>
+            <key-property name="tableComment" type="java.lang.String">
+                <column name="TABLE_COMMENT" length="2048" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

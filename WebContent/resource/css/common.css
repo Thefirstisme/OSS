@@ -1,0 +1,57 @@
+.openLinkLoading div {
+	padding: 5px 10px 5px 25px;
+	background: no-repeat 5px 5px;
+	line-height: 16px;
+	background-color: #fbfbfb;
+	background-image: url(../images/loading.gif);
+}
+
+.vaildcode_img {
+	margin: -28px 0px 0px 280px;
+}
+
+#loading-mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 20000;
+	background-color: white !important;
+}
+
+#loading {
+	border: 1px solid #99bbe8;
+	position: absolute;
+	left: 40%;
+	top: 40%;
+	padding: 2px;
+	z-index: 20001;
+	width: 250px;
+	height: auto;
+}
+
+#loading img {
+	margin-bottom: 5px;
+}
+
+#loading .loading-indicator {
+	background: white;
+	border: 1px solid #c1d1d6;
+	color: #555;
+	font: bold 13px helvetica, arial, tahoma, sans-serif;
+	/*padding:10px;*/
+	margin: 0;
+	text-align: center;
+	height: auto;
+}
+
+.loading-indicator {
+	font-size: 11px;
+	background-image:url("../ext/resources/themes/images/default/grid/loading.gif");
+	background-repeat: no-repeat;
+	background-position: top left;
+	padding-left: 20px;
+	height: 18px;
+	text-align: left;
+}

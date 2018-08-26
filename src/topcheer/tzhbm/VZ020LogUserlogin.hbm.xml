@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.topcheer.oss.log.bo.VZ020LogUserlogin" table="v_z020_log_userlogin" catalog="oss">
+		<id name="logId" type="java.lang.String">
+            <column name="LOG_ID" />
+            <generator class="native" />
+        </id>
+		<property name="userId" type="java.lang.String">
+			<column name="USER_ID" length="20" />
+		</property>
+		<property name="isSuccess" type="java.lang.String">
+			<column name="IS_SUCCESS" length="1" />
+		</property>
+		<property name="loginTime" type="java.sql.Timestamp">
+			<column name="LOGIN_TIME" length="0" />
+		</property>
+		<property name="perLoginTime" type="java.sql.Timestamp">
+			<column name="PER_LOGIN_TIME" length="0" />
+		</property>
+		<property name="loginCount" type="java.lang.Integer">
+			<column name="LOGIN_COUNT" />
+		</property>
+		<property name="loginIp" type="java.lang.String">
+			<column name="LOGIN_IP" length="15" />
+		</property>
+		<property name="userStatusId" type="java.lang.String">
+			<column name="USER_STATUS_ID" length="60" />
+		</property>
+		<property name="userAccount" type="java.lang.String">
+			<column name="User_Account" length="30" />
+		</property>
+		<property name="userName" type="java.lang.String">
+			<column name="User_Name" length="30" />
+		</property>
+		<property name="isHistory" type="java.lang.String">
+			<column name="Is_History" length="1" />
+		</property>
+		<property name="loginType" type="java.lang.String">
+			<column name="Login_Type" length="1" />
+		</property>
+    </class>
+</hibernate-mapping>

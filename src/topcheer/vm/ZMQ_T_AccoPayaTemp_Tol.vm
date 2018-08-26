@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="GBK"?>
+<CFX>
+	<HEAD>
+		<VER>$!head.ver</VER>
+		<SRC>$!head.src</SRC>
+		<DES>$!head.des</DES>
+		<APP>$!head.app</APP>
+		<MsgNo>$!head.msgNo</MsgNo>
+		<MsgID>$!head.msgID</MsgID>
+		<MsgRef>$!head.msgRef</MsgRef>
+		<WorkDate>$!head.workDate</WorkDate>
+		<EditFlag>$!head.editFlag</EditFlag>
+		<Reserve/>
+	</HEAD>
+	<MSG>
+	 	#foreach($batch in ${batchList})
+		<FTZ210104>
+			<BATCH>
+				<AccountNo>$!batch.acctId</AccountNo>
+				<Currency>$!batch.currencyCd</Currency>
+				<Balance>$!batch.dayBalFill</Balance>
+				<BalanceCode>$!batch.balanceCd</BalanceCode>
+				<SubmitDate>$!batch.declareDt</SubmitDate>
+				<TotalCount>$!batch.tolRecord</TotalCount>
+				<AccOrgCode>$!batch.belongOrgId</AccOrgCode>
+			</BATCH>
+			
+			<TRANLIST>
+                            #foreach($tran in ${batch.tranList})
+				<TRAN>
+					<SeqNo>$!tran.detailSeq</SeqNo>
+					<CDFlag>$!tran.outInAcctInd</CDFlag>
+					<TranDate>$!tran.acctingDt</TranDate>
+					<OrgTranDate>$!tran.origTxnDt</OrgTranDate>
+					<Amount>$!tran.bal</Amount>
+					<OppName>$!tran.oppositeName</OppName>
+					<OppBankCode>$!tran.oppositeBankCd</OppBankCode>
+					<CountryCode>$!tran.oppositeCountryCd</CountryCode>
+					<DistrictCode>$!tran.domechargeAreaCd</DistrictCode>
+					<TranType>$!tran.txnAttri</TranType>
+				</TRAN>
+                             #end
+			</TRANLIST>
+			
+		</FTZ210104>
+		#end
+	</MSG>
+</CFX>

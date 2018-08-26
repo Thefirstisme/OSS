@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mapping>
+    <class name="com.quarts.manager.xo.XmlEntry">
+        <map-to xml="entry"/>
+        <field name="key" type="java.lang.String">
+            <bind-xml name="key" node="element"/>
+        </field>
+        <field name="value" type="java.lang.String">
+            <bind-xml name="value" node="element"/>
+        </field>
+    </class>
+    <class name="com.quarts.manager.xo.XmlJobDataMap">
+        <map-to xml="job-data-map"/>
+        <field name="entryList" type="com.quarts.manager.xo.XmlEntry" collection="collection">
+          <bind-xml name="entry"/>
+        </field>
+    </class>
+    <class name="com.quarts.manager.xo.XmlJobDetail">
+        <map-to xml="job-detail"/>
+        <field name="name" type="java.lang.String">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="group" type="java.lang.String">
+            <bind-xml name="group" node="element"/>
+        </field>
+        <field name="jobClass" type="java.lang.String">
+            <bind-xml name="job-class" node="element"/>
+        </field>
+        <field name="jobListenerRef" type="java.lang.String">
+            <bind-xml name="job-listener-ref" node="element"/>
+        </field>
+        <field name="jobDataMap" type="com.quarts.manager.xo.XmlJobDataMap">
+          <bind-xml name="job-data-map"/>
+        </field>
+    </class>
+    <class name="com.quarts.manager.xo.BaseTrigger">
+        <field name="name" type="java.lang.String">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="group" type="java.lang.String">
+            <bind-xml name="group" node="element"/>
+        </field>
+        <field name="jobName" type="java.lang.String">
+            <bind-xml name="job-name" node="element"/>
+        </field>
+        <field name="jobGroup" type="java.lang.String">
+          <bind-xml name="job-group"/>
+        </field>
+        <field name="startTime" type="java.lang.String">
+          <bind-xml name="start-time"/>
+        </field>
+        <field name="endTime" type="java.lang.String">
+          <bind-xml name="end-time"/>
+        </field>
+    </class>
+    <class name="com.quarts.manager.xo.XmlCron" extends="com.quarts.manager.xo.BaseTrigger">
+        <map-to xml="cron"/>
+        <field name="cronExpression" type="java.lang.String">
+          <bind-xml name="cron-expression"/>
+        </field>
+    </class>   
+    <class name="com.quarts.manager.xo.XmlSimple" extends="com.quarts.manager.xo.BaseTrigger">
+        <map-to xml="simple"/>
+        <field name="repeatCount" type="java.lang.String">
+            <bind-xml name="repeat-count" node="element"/>
+        </field>
+        <field name="repeatInterval" type="java.lang.String">
+            <bind-xml name="repeat-interval" node="element"/>
+        </field>
+    </class>
+    <class name="com.quarts.manager.xo.XmlTrigger">
+        <map-to xml="trigger"/>
+        <field name="trigger" type="com.quarts.manager.xo.BaseTrigger">
+          <bind-xml auto-naming="deriveByClass" node="element"/>
+        </field>
+    </class>    
+    <class name="com.quarts.manager.xo.BaseXo">
+        <field name="id" type="java.lang.String">
+            <bind-xml name="id" node="element"/>
+        </field>
+        <field name="description" type="java.lang.String">
+            <bind-xml name="description" node="element"/>
+        </field>
+    </class>    
+    <class name="com.quarts.manager.xo.XmlJob" extends="com.quarts.manager.xo.BaseXo">
+        <map-to xml="job"/>        
+        <field name="jobDetail" type="com.quarts.manager.xo.XmlJobDetail">
+            <bind-xml name="job-detail" node="element"/>
+        </field>
+        <field name="xmlTrigger" type="com.quarts.manager.xo.XmlTrigger">
+            <bind-xml name="trigger" node="element"/>
+        </field>
+    </class>
+    <class name="com.quarts.manager.xo.XmlJobListener" extends="com.quarts.manager.xo.BaseXo">
+        <map-to xml="job-listener"/>
+        <field name="name" type="java.lang.String">
+          <bind-xml name="name" node="attribute"/>
+        </field>
+        <field name="className" type="java.lang.String">
+          <bind-xml name="class-name" node="attribute"/>
+        </field>
+    </class>
+    <class name="com.quarts.manager.xo.XmlQuartz">
+        <map-to xml="quartz"/>
+        <field name="listenerList" type="com.quarts.manager.xo.XmlJobListener" collection="collection">
+          <bind-xml name="job-listener"/>
+        </field>
+        <field name="jobList" type="com.quarts.manager.xo.XmlJob" collection="collection">
+          <bind-xml name="job"/>
+        </field>
+    </class>
+</mapping>
+
+
+
+
+
+

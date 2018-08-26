@@ -1,0 +1,14 @@
+jdbc.oracle.driverClassName oracle.jdbc.driver.OracleDriver
+jdbc.oracle.url jdbc:oracle:thin:@11.1.60.25:1521/devrac
+jdbc.oracle.userName FXRP
+jdbc.oracle.password sit12345
+jdbc.oracle.validationSql select 1 from dual
+
+app.path /fxrp/domains/fxrp_domain/deploy/OSS/
+vm.mapping.path WEB-INF\\classes\\topcheer\\vm\\
+
+FTZMIS_SRC 613002100003
+
+topcheer.xml.map xmlmap\\
+
+SPDBCountryCd 'AUD','CAD','CHF','CNY','DKK','EUR','GBP','HKD','JPY','NOK','SEK','SGD','USD'
